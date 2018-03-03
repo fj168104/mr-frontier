@@ -266,6 +266,7 @@ CREATE TABLE `biz_config` (
   `app_name` char(50) DEFAULT 'MR' COMMENT '所属应用',
   `app_name_desp` char(200) DEFAULT 'MR' COMMENT '所属应用描述',
   `URL` char(200) NOT NULL COMMENT '目标URL',
+  `is_lock` bit(1) DEFAULT NULL COMMENT '配置是否锁定，1：锁定，0未锁定',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `modify_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
