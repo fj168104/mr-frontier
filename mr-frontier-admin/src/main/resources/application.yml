@@ -124,7 +124,7 @@ spring:
   profiles: dev
   #数据源
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/good?useUnicode=true&characterEncoding=utf-8&useSSL=false&autoReconnect=true&allowMultiQueries=true
+    url: jdbc:mysql://47.100.7.81:3306/frontier?useUnicode=true&characterEncoding=utf-8&useSSL=false&autoReconnect=true&allowMultiQueries=true
     username: root
     password: ${password}
 #日志
@@ -135,7 +135,7 @@ logging:
 #数据库密码加密
 #java -cp druid-1.1.0.jar com.alibaba.druid.filter.config.ConfigTools 你的密码
 publicKey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKTusxtIrx4B0a5Pi5oUImdtQrkV9spQaUYv6xpCIoAtM50Yo9d9miMTWF145+wwScNaV5QF+r+jQ0DCZL0/+j8CAwEAAQ==
-password: 1234
+password: Root@1234
 
 #上传文件配置信息
 #文件仓库地址

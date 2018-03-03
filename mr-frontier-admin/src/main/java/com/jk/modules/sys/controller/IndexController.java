@@ -91,7 +91,7 @@ public class IndexController extends BaseController{
         String nArr4 = Arrays.toString(num4);
         String nArr5 = Arrays.toString(num5);
 
-        modelMap.put("nameArr", "['邮件营销', '百度信用', '实时计算', '直接访问', '搜索引擎']");
+        modelMap.put("nameArr", "['邮件营销', '百度信用', '实时计算', '直接访问',   '搜索引擎']");
 
         modelMap.put("arrX", arrX);
 

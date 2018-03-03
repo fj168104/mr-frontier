@@ -470,134 +470,136 @@ INSERT INTO `log` VALUES ('477', '', '0', 'admin', '角色授权', 'com.jk.modul
 -- ----------------------------
 -- Records of permission
 -- ----------------------------
-INSERT INTO `permission` VALUES ('1', '系统管理', '0', null, '', '0', null, '0/', '&#xe62d;', '1', '', '2017-02-09 10:34:50', '2017-05-16 23:10:48');
-INSERT INTO `permission` VALUES ('3', '管理员管理', '1', '/admin/manager/user', 'user:list', '1', '系统管理', '1/', null, '1', '', '2017-02-13 12:08:50', '2017-02-15 15:23:54');
-INSERT INTO `permission` VALUES ('9', '角色管理', '1', '/admin/role', 'role:list', '1', '系统管理', null, '', '2', '', '2017-02-15 14:07:21', '2017-05-16 23:10:17');
-INSERT INTO `permission` VALUES ('10', '权限管理', '1', '/admin/permission', 'permission:list', '1', '系统管理', null, '', '3', '', '2017-02-15 14:08:24', '2017-05-16 23:10:23');
-INSERT INTO `permission` VALUES ('11', '新增', '2', null, 'user:create', '3', '管理员管理', null, '', '1', '', '2017-02-15 14:25:22', '2017-05-16 23:11:10');
-INSERT INTO `permission` VALUES ('12', '修改', '2', null, 'user:update', '3', '管理员管理', null, '', '2', '', '2017-02-15 14:26:03', '2017-05-16 23:11:19');
-INSERT INTO `permission` VALUES ('13', '删除', '2', null, 'user:delete', '3', '管理员管理', null, '', '3', '', '2017-02-15 14:27:29', '2017-05-16 23:11:25');
-INSERT INTO `permission` VALUES ('14', '查看', '2', null, 'user:view', '3', '管理员管理', null, '', '4', '', '2017-02-15 15:22:47', '2017-05-16 23:11:30');
-INSERT INTO `permission` VALUES ('15', '新增', '2', null, 'role:create', '9', '角色管理', null, '', '1', '', '2017-02-15 15:23:21', '2017-05-16 23:11:46');
-INSERT INTO `permission` VALUES ('17', '删除', '2', null, 'role:delete', '9', '角色管理', null, '', '3', '', '2017-02-15 15:25:48', '2017-05-16 23:12:09');
-INSERT INTO `permission` VALUES ('18', '查看', '2', null, 'role:view', '9', '角色管理', null, '', '4', '', '2017-02-15 15:26:24', '2017-05-16 23:12:16');
-INSERT INTO `permission` VALUES ('19', '新增', '2', null, 'permission:create', '10', '权限管理', null, '', '1', '', '2017-02-15 15:27:53', '2017-05-16 23:12:28');
-INSERT INTO `permission` VALUES ('20', '修改', '2', null, 'permission:update', '10', '权限管理', null, '', '2', '', '2017-02-15 15:28:24', '2017-05-16 23:12:32');
-INSERT INTO `permission` VALUES ('21', '删除', '2', null, 'permission:delete', '10', '权限管理', null, '', '3', '', '2017-02-15 15:28:51', '2017-05-16 23:12:37');
-INSERT INTO `permission` VALUES ('22', '查看', '2', null, 'permission:view', '10', '权限管理', null, '', '4', '', '2017-02-15 15:29:10', '2017-05-16 23:12:42');
-INSERT INTO `permission` VALUES ('31', '修改', '2', null, 'role:update', '9', '角色管理', null, '', '2', '', '2017-02-17 13:39:20', '2017-05-16 23:12:01');
-INSERT INTO `permission` VALUES ('32', '禁用|启用', '2', null, 'user:status', '3', '管理员管理', null, '', '5', '', '2017-02-17 15:57:15', '2017-05-16 23:13:00');
-INSERT INTO `permission` VALUES ('51', '内容管理', '0', null, null, '0', null, null, '&#xe616;', '3', '', '2017-04-19 11:16:42', '2017-05-16 23:13:30');
-INSERT INTO `permission` VALUES ('52', '内容分类', '1', '/admin/content/cat', 'content-cat:list', '51', '内容管理', null, '', '1', '', '2017-04-19 11:17:50', '2017-05-16 23:16:17');
-INSERT INTO `permission` VALUES ('53', '内容列表', '1', '/admin/content', 'content:list', '51', '内容管理', null, '', '2', '', '2017-04-19 11:21:28', '2017-05-16 23:16:33');
-INSERT INTO `permission` VALUES ('54', '删除', '2', null, 'content:delete', '53', '内容列表', null, '', '3', '', '2017-04-20 17:14:31', '2017-05-16 23:17:51');
-INSERT INTO `permission` VALUES ('55', '添加', '2', null, 'content:create', '53', '内容列表', null, '', '1', '', '2017-04-20 17:14:52', '2017-05-16 23:17:12');
-INSERT INTO `permission` VALUES ('56', '修改', '2', null, 'content:update', '53', '内容列表', null, '', '2', '', '2017-04-20 17:15:18', '2017-05-16 23:18:02');
-INSERT INTO `permission` VALUES ('57', '添加', '2', null, 'content-cat:create', '52', '内容分类', null, null, '1', '', '2017-04-24 11:04:12', '2017-04-24 11:04:12');
-INSERT INTO `permission` VALUES ('58', '修改', '2', null, 'content-cat:update', '52', '内容分类', null, null, '2', '', '2017-04-24 11:04:40', '2017-04-24 11:04:40');
-INSERT INTO `permission` VALUES ('59', '删除', '2', null, 'content-cat:delete', '52', '内容分类', null, null, '3', '', '2017-04-24 11:05:01', '2017-04-24 11:05:01');
-INSERT INTO `permission` VALUES ('64', 'SQL监控', '1', '/admin/monitor/druid', 'druid:list', '1', '系统管理', null, '', '5', '', '2017-05-05 15:31:41', '2017-07-27 23:28:30');
-INSERT INTO `permission` VALUES ('66', '调度管理', '0', null, null, '0', null, null, '&#xe637;', '2', '', '2017-05-09 15:22:11', '2017-05-16 23:13:42');
-INSERT INTO `permission` VALUES ('67', '调度列表', '1', '/admin/job', 'job:list', '66', '调度管理', null, '', '1', '', '2017-05-09 15:22:37', '2017-05-16 23:19:40');
-INSERT INTO `permission` VALUES ('68', '添加', '2', null, 'job:create', '67', '调度列表', null, '', '1', '', '2017-05-09 15:23:22', '2017-05-16 23:19:43');
-INSERT INTO `permission` VALUES ('69', '日志管理', '0', null, null, '0', null, null, '&#xe623;', '4', '', '2017-05-16 23:22:15', '2017-05-16 23:26:13');
-INSERT INTO `permission` VALUES ('70', '操作日志', '1', '/admin/log', 'log:list', '69', '日志管理', null, '', '1', '', '2017-05-16 23:23:57', '2017-05-16 23:23:57');
-INSERT INTO `permission` VALUES ('71', '删除', '2', null, 'log:delete', '70', '操作日志', null, '', '1', '', '2017-05-16 23:24:26', '2017-05-16 23:24:26');
-INSERT INTO `permission` VALUES ('72', '查看', '2', null, 'log:view', '70', '操作日志', null, '', '2', '', '2017-05-16 23:24:39', '2017-05-16 23:24:39');
-INSERT INTO `permission` VALUES ('73', '修改', '2', null, 'job:update', '67', '调度列表', null, '', '2', '', '2017-05-17 15:40:42', '2017-05-17 15:40:42');
-INSERT INTO `permission` VALUES ('74', '删除', '2', null, 'job:delete', '67', '调度列表', null, '', '3', '', '2017-05-17 16:04:48', '2017-05-17 16:04:48');
-INSERT INTO `permission` VALUES ('75', '暂停', '2', null, 'job:pause', '67', '调度列表', null, '', '4', '', '2017-05-19 12:43:12', '2017-05-19 12:43:12');
-INSERT INTO `permission` VALUES ('76', '恢复', '2', null, 'job:resume', '67', '调度列表', null, '', '5', '', '2017-05-19 12:46:22', '2017-05-19 12:46:22');
-INSERT INTO `permission` VALUES ('77', '运行一次', '2', null, 'job:run', '67', '调度列表', null, '', '6', '', '2017-05-19 12:48:10', '2017-05-19 12:48:10');
-INSERT INTO `permission` VALUES ('78', '查看详情', '2', null, 'job:view', '67', '调度列表', null, '', '7', '', '2017-05-22 16:28:28', '2017-05-22 16:28:28');
-INSERT INTO `permission` VALUES ('79', '调度日志', '2', null, 'job:log', '67', '调度列表', null, '', '8', '', '2017-05-22 16:28:54', '2017-05-22 16:28:54');
-INSERT INTO `permission` VALUES ('80', '授权', '2', null, 'role:permission', '9', '角色管理', null, '', '5', '', '2017-07-20 14:17:54', '2017-07-20 14:18:37');
-
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (1,'系统管理','0',null,'',0,null,'0/','&#xe62d;',1,0,{ts '2017-02-09 10:34:50.'},{ts '2017-05-16 23:10:48.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (3,'管理员管理','1','/admin/manager/user','user:list',1,'系统管理','1/',null,1,0,{ts '2017-02-13 12:08:50.'},{ts '2017-02-15 15:23:54.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (9,'角色管理','1','/admin/role','role:list',1,'系统管理',null,'',2,0,{ts '2017-02-15 14:07:21.'},{ts '2017-05-16 23:10:17.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (10,'权限管理','1','/admin/permission','permission:list',1,'系统管理',null,'',3,0,{ts '2017-02-15 14:08:24.'},{ts '2017-05-16 23:10:23.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (11,'新增','2',null,'user:create',3,'管理员管理',null,'',1,0,{ts '2017-02-15 14:25:22.'},{ts '2017-05-16 23:11:10.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (12,'修改','2',null,'user:update',3,'管理员管理',null,'',2,0,{ts '2017-02-15 14:26:03.'},{ts '2017-05-16 23:11:19.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (13,'删除','2',null,'user:delete',3,'管理员管理',null,'',3,0,{ts '2017-02-15 14:27:29.'},{ts '2017-05-16 23:11:25.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (14,'查看','2',null,'user:view',3,'管理员管理',null,'',4,0,{ts '2017-02-15 15:22:47.'},{ts '2017-05-16 23:11:30.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (15,'新增','2',null,'role:create',9,'角色管理',null,'',1,0,{ts '2017-02-15 15:23:21.'},{ts '2017-05-16 23:11:46.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (17,'删除','2',null,'role:delete',9,'角色管理',null,'',3,0,{ts '2017-02-15 15:25:48.'},{ts '2017-05-16 23:12:09.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (18,'查看','2',null,'role:view',9,'角色管理',null,'',4,0,{ts '2017-02-15 15:26:24.'},{ts '2017-05-16 23:12:16.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (19,'新增','2',null,'permission:create',10,'权限管理',null,'',1,0,{ts '2017-02-15 15:27:53.'},{ts '2017-05-16 23:12:28.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (20,'修改','2',null,'permission:update',10,'权限管理',null,'',2,0,{ts '2017-02-15 15:28:24.'},{ts '2017-05-16 23:12:32.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (21,'删除','2',null,'permission:delete',10,'权限管理',null,'',3,0,{ts '2017-02-15 15:28:51.'},{ts '2017-05-16 23:12:37.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (22,'查看','2',null,'permission:view',10,'权限管理',null,'',4,0,{ts '2017-02-15 15:29:10.'},{ts '2017-05-16 23:12:42.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (31,'修改','2',null,'role:update',9,'角色管理',null,'',2,0,{ts '2017-02-17 13:39:20.'},{ts '2017-05-16 23:12:01.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (32,'禁用|启用','2',null,'user:status',3,'管理员管理',null,'',5,0,{ts '2017-02-17 15:57:15.'},{ts '2017-05-16 23:13:00.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (51,'内容管理','0',null,null,0,null,null,'&#xe616;',3,0,{ts '2017-04-19 11:16:42.'},{ts '2017-05-16 23:13:30.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (52,'内容分类','1','/admin/content/cat','content-cat:list',51,'内容管理',null,'',1,0,{ts '2017-04-19 11:17:50.'},{ts '2017-05-16 23:16:17.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (53,'内容列表','1','/admin/content','content:list',51,'内容管理',null,'',2,0,{ts '2017-04-19 11:21:28.'},{ts '2017-05-16 23:16:33.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (54,'删除','2',null,'content:delete',53,'内容列表',null,'',3,0,{ts '2017-04-20 17:14:31.'},{ts '2017-05-16 23:17:51.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (55,'添加','2',null,'content:create',53,'内容列表',null,'',1,0,{ts '2017-04-20 17:14:52.'},{ts '2017-05-16 23:17:12.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (56,'修改','2',null,'content:update',53,'内容列表',null,'',2,0,{ts '2017-04-20 17:15:18.'},{ts '2017-05-16 23:18:02.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (57,'添加','2',null,'content-cat:create',52,'内容分类',null,null,1,0,{ts '2017-04-24 11:04:12.'},{ts '2017-04-24 11:04:12.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (58,'修改','2',null,'content-cat:update',52,'内容分类',null,null,2,0,{ts '2017-04-24 11:04:40.'},{ts '2017-04-24 11:04:40.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (59,'删除','2',null,'content-cat:delete',52,'内容分类',null,null,3,0,{ts '2017-04-24 11:05:01.'},{ts '2017-04-24 11:05:01.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (64,'SQL监控','1','/admin/monitor/druid','druid:list',1,'系统管理',null,'',5,0,{ts '2017-05-05 15:31:41.'},{ts '2017-07-27 23:28:30.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (66,'调度管理','0',null,null,0,null,null,'&#xe637;',2,0,{ts '2017-05-09 15:22:11.'},{ts '2017-05-16 23:13:42.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (67,'调度列表','1','/admin/job','job:list',66,'调度管理',null,'',1,0,{ts '2017-05-09 15:22:37.'},{ts '2017-05-16 23:19:40.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (68,'添加','2',null,'job:create',67,'调度列表',null,'',1,0,{ts '2017-05-09 15:23:22.'},{ts '2017-05-16 23:19:43.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (69,'日志管理','0',null,null,0,null,null,'&#xe623;',4,0,{ts '2017-05-16 23:22:15.'},{ts '2017-05-16 23:26:13.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (70,'操作日志','1','/admin/log','log:list',69,'日志管理',null,'',1,0,{ts '2017-05-16 23:23:57.'},{ts '2017-05-16 23:23:57.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (71,'删除','2',null,'log:delete',70,'操作日志',null,'',1,0,{ts '2017-05-16 23:24:26.'},{ts '2017-05-16 23:24:26.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (72,'查看','2',null,'log:view',70,'操作日志',null,'',2,0,{ts '2017-05-16 23:24:39.'},{ts '2017-05-16 23:24:39.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (73,'修改','2',null,'job:update',67,'调度列表',null,'',2,0,{ts '2017-05-17 15:40:42.'},{ts '2017-05-17 15:40:42.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (74,'删除','2',null,'job:delete',67,'调度列表',null,'',3,0,{ts '2017-05-17 16:04:48.'},{ts '2017-05-17 16:04:48.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (75,'暂停','2',null,'job:pause',67,'调度列表',null,'',4,0,{ts '2017-05-19 12:43:12.'},{ts '2017-05-19 12:43:12.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (76,'恢复','2',null,'job:resume',67,'调度列表',null,'',5,0,{ts '2017-05-19 12:46:22.'},{ts '2017-05-19 12:46:22.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (77,'运行一次','2',null,'job:run',67,'调度列表',null,'',6,0,{ts '2017-05-19 12:48:10.'},{ts '2017-05-19 12:48:10.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (78,'查看详情','2',null,'job:view',67,'调度列表',null,'',7,0,{ts '2017-05-22 16:28:28.'},{ts '2017-05-22 16:28:28.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (79,'调度日志','2',null,'job:log',67,'调度列表',null,'',8,0,{ts '2017-05-22 16:28:54.'},{ts '2017-05-22 16:28:54.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (80,'授权','2',null,'role:permission',9,'角色管理',null,'',5,0,{ts '2017-07-20 14:17:54.'},{ts '2017-07-20 14:18:37.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (81,'服务管理','0','','',0,'',null,'&#xe72b;',5,0,{ts '2018-02-28 16:23:14.'},{ts '2018-02-28 16:23:14.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (82,'服务配置','1','/admin/biz/config','biz-config:list',81,'服务管理',null,'',1,0,{ts '2018-02-28 16:34:05.'},{ts '2018-03-03 14:05:05.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (83,'调用记录','1','/admin/biz','biz:list',81,'服务管理',null,'',2,0,{ts '2018-02-28 16:35:39.'},{ts '2018-02-28 16:35:39.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (84,'删除','2','','biz:delete',83,'调用记录',null,'',1,0,{ts '2018-02-28 16:36:51.'},{ts '2018-02-28 16:36:51.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (85,'查看','2','','biz:view',83,'调用记录',null,'',2,0,{ts '2018-02-28 16:38:21.'},{ts '2018-02-28 16:38:21.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (86,'新增','2','','biz-config:create',82,'服务配置',null,'',1,0,{ts '2018-03-03 14:06:31.'},{ts '2018-03-03 14:06:31.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (87,'修改','2','','biz-config:update',82,'服务配置',null,'',2,0,{ts '2018-03-03 14:07:24.'},{ts '2018-03-03 14:07:24.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (88,'删除','2','','biz-config:delete',82,'服务配置',null,'',3,0,{ts '2018-03-03 14:07:54.'},{ts '2018-03-03 14:07:54.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (89,'查看','2','','biz-config:view',82,'服务配置',null,'',4,0,{ts '2018-03-03 14:08:11.'},{ts '2018-03-03 14:08:11.'});
+INSERT INTO permission (id,name,type,url,perms,parent_id,parent_name,parent_ids,icon,sort,is_lock,create_time,modify_time) VALUES (90,'禁用|启用','2','','biz-config:status',82,'服务配置',null,'',5,0,{ts '2018-03-03 14:08:44.'},{ts '2018-03-03 14:08:44.'});
 
 -- ----------------------------
 -- Records of role
 -- ----------------------------
-INSERT INTO `role` VALUES ('1', '超级管理员', '我是超级管理员', 'ROEL_ADMIN', '2017-02-08 16:03:57', '2017-05-16 23:24:48');
-INSERT INTO `role` VALUES ('3', '管理员', '我是管理员', 'ROLE_GLY', '2017-02-08 17:13:50', '2017-05-05 15:26:19');
-INSERT INTO `role` VALUES ('8', '普通用户', '我是普通用户', 'ROLE_SIMPLE', '2017-02-17 10:39:35', '2017-02-21 12:08:11');
-
+INSERT INTO role (id,name,remark,perms,create_time,modify_time) VALUES (1,'超级管理员','我是超级管理员','ROEL_ADMIN',{ts '2017-02-08 16:03:57.'},{ts '2017-05-16 23:24:48.'});
+INSERT INTO role (id,name,remark,perms,create_time,modify_time) VALUES (3,'管理员','我是管理员','ROLE_GLY',{ts '2017-02-08 17:13:50.'},{ts '2017-05-05 15:26:19.'});
+INSERT INTO role (id,name,remark,perms,create_time,modify_time) VALUES (8,'普通用户','我是普通用户','ROLE_SIMPLE',{ts '2017-02-17 10:39:35.'},{ts '2017-02-21 12:08:11.'});
 
 -- ----------------------------
 -- Records of role_permission
 -- ----------------------------
-INSERT INTO `role_permission` VALUES ('2383', '1', '1', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2384', '1', '3', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2385', '1', '11', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2386', '1', '12', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2387', '1', '13', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2388', '1', '14', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2389', '1', '32', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2390', '1', '9', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2391', '1', '15', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2392', '1', '31', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2393', '1', '17', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2394', '1', '18', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2395', '1', '80', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2396', '1', '10', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2397', '1', '19', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2398', '1', '20', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2399', '1', '21', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2400', '1', '22', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2401', '1', '64', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2402', '1', '66', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2403', '1', '67', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2404', '1', '68', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2405', '1', '73', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2406', '1', '74', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2407', '1', '75', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2408', '1', '76', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2409', '1', '77', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2410', '1', '78', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2411', '1', '79', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2412', '1', '51', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2413', '1', '52', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2414', '1', '57', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2415', '1', '58', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2416', '1', '59', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2417', '1', '53', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2418', '1', '55', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2419', '1', '56', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2420', '1', '54', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2421', '1', '69', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2422', '1', '70', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2423', '1', '71', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2424', '1', '72', '2017-07-27 23:51:56', '2017-07-27 23:51:56');
-INSERT INTO `role_permission` VALUES ('2460', '8', '1', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2461', '8', '3', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2462', '8', '14', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2463', '8', '9', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2464', '8', '15', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2465', '8', '18', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2466', '8', '10', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2467', '8', '19', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2468', '8', '22', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2469', '8', '64', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2470', '8', '66', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2471', '8', '67', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2472', '8', '68', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2473', '8', '75', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2474', '8', '76', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2475', '8', '77', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2476', '8', '78', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2477', '8', '79', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2478', '8', '51', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2479', '8', '52', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2480', '8', '57', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2481', '8', '58', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2482', '8', '59', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2483', '8', '53', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2484', '8', '55', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2485', '8', '56', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2486', '8', '54', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2487', '8', '69', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2488', '8', '70', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2489', '8', '71', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
-INSERT INTO `role_permission` VALUES ('2490', '8', '72', '2017-08-05 19:02:22', '2017-08-05 19:02:22');
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2512,8,66,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2513,8,67,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2514,8,68,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2515,8,75,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2516,8,76,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2517,8,77,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2518,8,78,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2519,8,79,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2520,8,51,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2521,8,52,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2522,8,57,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2523,8,58,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2524,8,59,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2525,8,53,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2526,8,55,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2527,8,56,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2528,8,54,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2529,8,69,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2530,8,70,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2531,8,71,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2532,8,72,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2533,8,81,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2534,8,83,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2535,8,85,{ts '2018-02-28 16:40:55.'},{ts '2018-02-28 16:40:55.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2682,1,1,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2683,1,3,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2684,1,11,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2685,1,12,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2686,1,13,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2687,1,14,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2688,1,32,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2689,1,9,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2690,1,15,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2691,1,31,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2692,1,17,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2693,1,18,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2694,1,80,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2695,1,10,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2696,1,19,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2697,1,20,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2698,1,21,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2699,1,22,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2700,1,64,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2701,1,66,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2702,1,67,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2703,1,68,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2704,1,73,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2705,1,74,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2706,1,75,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2707,1,76,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2708,1,77,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2709,1,78,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2710,1,79,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2711,1,69,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2712,1,70,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2713,1,71,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2714,1,72,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2715,1,81,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2716,1,82,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2717,1,86,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2718,1,87,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2719,1,88,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2720,1,89,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2721,1,90,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2722,1,83,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2723,1,84,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
+INSERT INTO role_permission (id,role_id,permission_id,create_time,modify_time) VALUES (2724,1,85,{ts '2018-03-03 22:11:40.'},{ts '2018-03-03 22:11:40.'});
 
 
 -- ----------------------------
@@ -614,15 +616,18 @@ INSERT INTO `schedule_job` VALUES ('27', '测试远程调度request接收参数'
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('83', 'admin', '202cb962ac59075b964b07152d234b70', '202cb962ac59075b964b07152d234b70', '崔朋', '', '18568820939', 3 , '228727120@qq.com', '', '', '', null, '2017-02-07 11:45:57', '2017-02-20 16:45:07');
-INSERT INTO `user` VALUES ('84', 'test', '098f6bcd4621d373cade4e832627b4f6', null, null, '', '15001338253', 4, '228727120@qq.com', '', '', '', null, '2017-08-05 18:54:22', '2017-08-05 18:54:22');
+
+INSERT INTO user (id,username,password,salt,real_name,sex,mobile_phone,dept_id,email,is_lock,is_del,is_admin,login_time,create_time,modify_time) VALUES (83,'admin','202cb962ac59075b964b07152d234b70','202cb962ac59075b964b07152d234b70','冯江',1,'18568820939',3,'228727120@qq.com',0,0,1,null,{ts '2017-02-07 11:45:57.'},{ts '2017-02-20 16:45:07.'});
+INSERT INTO user (id,username,password,salt,real_name,sex,mobile_phone,dept_id,email,is_lock,is_del,is_admin,login_time,create_time,modify_time) VALUES (84,'test','098f6bcd4621d373cade4e832627b4f6',null,null,1,'15001338253',4,'228727120@qq.com',0,0,0,null,{ts '2017-08-05 18:54:22.'},{ts '2017-08-05 18:54:22.'});
+INSERT INTO user (id,username,password,salt,real_name,sex,mobile_phone,dept_id,email,is_lock,is_del,is_admin,login_time,create_time,modify_time) VALUES (85,'fengjiang','202cb962ac59075b964b07152d234b70',null,null,1,'15502120393',null,'fj168104@163.com',0,0,0,null,{ts '2018-02-22 17:26:30.'},{ts '2018-03-03 15:17:56.'});
 
 
 -- ----------------------------
 -- Records of user_role
 -- ----------------------------
-INSERT INTO `user_role` VALUES ('1', '83', '1', '2017-02-13 11:02:06', '2017-02-13 11:02:08');
-INSERT INTO `user_role` VALUES ('3', '84', '8', '2017-08-05 18:54:22', '2017-08-05 18:54:22');
+INSERT INTO user_role (id,user_id,role_id,create_time,modify_time) VALUES (1,83,1,{ts '2017-02-13 11:02:06.'},{ts '2017-02-13 11:02:08.'});
+INSERT INTO user_role (id,user_id,role_id,create_time,modify_time) VALUES (3,84,8,{ts '2017-08-05 18:54:22.'},{ts '2017-08-05 18:54:22.'});
+INSERT INTO user_role (id,user_id,role_id,create_time,modify_time) VALUES (4,85,8,{ts '2018-02-22 17:26:30.'},{ts '2018-02-22 17:26:30.'});
 
 
 -- ----------------------------
