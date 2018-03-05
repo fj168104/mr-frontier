@@ -8,11 +8,16 @@ import com.netflix.zuul.context.RequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.*;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.http.HTTPBinding;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Enumeration;
@@ -83,7 +88,15 @@ public class PreCommonFilter extends ZuulFilter {
 			ctx.setSendZuulResponse(false); //不进行路由
 			try {
 //				String resBody = restTemplate.getForObject("https://www.sojson.com/open/api/weather/json.shtml?city=上海", String.class);
-				String resBody = restTemplate.getForObject(bizConfig.getUrl() + bizRecord.getRequestParams(), String.class);
+//				String resBody = restTemplate.getForObject(bizConfig.getUrl() + bizRecord.getRequestParams(), String.class);
+
+//				String resBody = getBody(bizConfig.getUrl(), getPostData(request));
+				String resBody = null;
+				if(request.getMethod().equals("GET")){
+					resBody = getBody(bizConfig.getUrl() + bizRecord.getRequestParams(), null, HttpMethod.GET);
+				}else{
+					resBody = getBody(bizConfig.getUrl(), getRequestParamMap(request), HttpMethod.POST);
+				}
 
 				response.getWriter().write(resBody); //响应体
 				bizRecord.setCallResult(0);
@@ -163,33 +176,116 @@ public class PreCommonFilter extends ZuulFilter {
 		return ip.equals("0:0:0:0:0:0:0:1") ? "127.0.0.1" : ip;
 	}
 
-	private String showParams(HttpServletRequest request) {
+	/**
+	 * 获取request参数Map
+	 * @param request
+	 * @return
+	 */
+	private Map<String, String> getRequestParamMap(HttpServletRequest request) {
 		Map<String, String> map = new HashMap<String, String>();
-		Enumeration paramNames = request.getParameterNames();
-		while (paramNames.hasMoreElements()) {
-			String paramName = (String) paramNames.nextElement();
-			String[] paramValues = request.getParameterValues(paramName);
-			if (paramValues.length == 1) {
-				String paramValue = paramValues[0];
-				if (paramValue.length() != 0) {
-					map.put(paramName, paramValue);
+		if(request.getMethod().equals("GET")){
+			Enumeration paramNames = request.getParameterNames();
+			while (paramNames.hasMoreElements()) {
+				String paramName = (String) paramNames.nextElement();
+				String[] paramValues = request.getParameterValues(paramName);
+				if (paramValues.length == 1) {
+					String paramValue = paramValues[0];
+					if (paramValue.length() != 0) {
+						map.put(paramName, paramValue);
+					}
 				}
 			}
+		}else if(request.getMethod().equals("POST")){
+			map = getPostData(request);
 		}
-
-		if (map == null || map.size() == 0) return "";
-
-		StringBuilder sb = new StringBuilder();
-		for (Map.Entry entry : map.entrySet()) {
-
-			if (!sb.toString().equals("")) {
-				sb.append("&");
-			}
-			sb.append(entry.getKey() + "=" + entry.getValue());
-		}
-
-		return "?" + sb;
+		return map;
 	}
 
+	/**
+	 * request请求参数 key1=value1&key2=value2...
+	 * @param request
+	 * @return
+	 */
+	private String showParams(HttpServletRequest request) {
+		if(request.getMethod().equals("GET")){
+			Map<String, String> map = getRequestParamMap(request);
+			if (map == null || map.size() == 0) return "";
 
+			StringBuilder sb = new StringBuilder();
+			for (Map.Entry entry : map.entrySet()) {
+
+				if (!sb.toString().equals("")) {
+					sb.append("&");
+				}
+				sb.append(entry.getKey() + "=" + entry.getValue());
+			}
+
+			return "?" + sb;
+		}else if(request.getMethod().equals("POST")){
+			return getPostDataString(request).toString();
+		}
+		return null;
+	}
+
+	/**
+	 * 发起POST请求
+	 * @param url
+	 * @param requestParams
+	 * @return
+	 */
+	private String getBody(String url, Map<String, String> requestParams, HttpMethod method) {
+		String resBody = null;
+		if (method == HttpMethod.GET) {
+			resBody = restTemplate.getForObject(url, String.class);
+		} else if (method == HttpMethod.POST) {
+			HttpHeaders headers = new HttpHeaders();
+			//  请勿轻易改变此提交方式，大部分的情况下，提交方式都是表单提交
+			headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+			//  封装参数，千万不要替换为Map与HashMap，否则参数无法传递
+			MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
+			//  也支持中文
+			params.setAll(requestParams);
+			HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<MultiValueMap<String, String>>(params, headers);
+			//  执行HTTP请求
+			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, requestEntity, String.class);
+			//	输出结果
+			resBody = response.getBody();
+		}
+		return resBody;
+	}
+
+	/**
+	 * POST 获取参数String
+	 * @param request
+	 * @return
+	 */
+	private static StringBuffer getPostDataString(HttpServletRequest request) {
+		StringBuffer data = new StringBuffer();
+		String line = null;
+		BufferedReader reader = null;
+		try {
+			reader = request.getReader();
+			while (null != (line = reader.readLine()))
+				data.append(line);
+		} catch (IOException e) {
+		} finally {
+		}
+		return data;
+	}
+
+	/**
+	 * POST 获取参数MAP
+	 * @param request
+	 * @return
+	 */
+	private static Map<String,String> getPostData(HttpServletRequest request) {
+		StringBuffer data = getPostDataString(request);
+		Map<String, String> map = new HashMap<String, String>();
+
+		for(String sData : data.toString().split("&")){
+			String[] ss = sData.split("=");
+			map.put(ss[0], ss[1]);
+		}
+		return map;
+	}
 }
