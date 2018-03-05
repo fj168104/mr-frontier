@@ -7,14 +7,23 @@ mr-frontier 集成了 springcloud zuul， dubbo， 并开放了灵活的业务�
 * 3、外部系统与内部系统交互必须通过前置系统
 
 mr-frontier-service 是springboot工程，直接启动即可
-演示地址为: http://106.14.195.171:8086,  替换下面的本机地址 http://localhost:8888可直接看到效果 
+演示地址[测试环境]为: http://106.14.195.171:8888
+
+
+# admin(管理控制台)配置：
+演示地址[测试环境]：http://106.14.195.171:8086，提供了前置系统的界面化的管理功能
 
 # 外部下系统交互
-* 以/openapi 开头为内部系统访问外部的前缀
-* 内部访问外部api示例: http://localhost:8888/openapi/weather?city=上海
-* mr-frontier
-* zuul.routes.example.path=/openapi/weather/**
-* zuul.routes.example.url=http://www.sojson.com/open/api/weather/json.shtml
+* /mr/rest/{appName} 为系统内部访问外部的URI
+* 内部访问外部api示例: http://106.14.195.171:8888/mr/rest/weather?city=上海 
+* 最重要访问的地址为https://www.sojson.com/open/api/weather/json.shtml
+* ------------------------------------------------------------------------
+* 集成方法：
+* 在http://106.14.195.171:8086 管理系统中配置外部url, 服务管理-->服务配置 --> 添加调用配置
+* 所属应用：你应用的名字,不能重复，要唯一
+* 目标URL：你实际要调用的url（不带参数）
+* GET 请求方式参考weather， POST请求参考postTest
+* 在你的程序中将外部url替换成http://106.14.195.171:8888/mr/rest/{appName}
 
 # 内部系统交互 rest方式
 * 以/mr/rest 开头为内部系统restful接口规范，配置如下，访问示例： http://localhost:8888/mr/rest/say 
@@ -37,5 +46,3 @@ mr-frontier-service 是springboot工程，直接启动即可
 * 测试方法：去掉当前的dubbo服务注释，启动安装好的zookeeper，再启动 mr-frontier-dubbo-consumer这个springboot工程。
 * 访问：http://localhost:8081/save， 它将会发起rpc远程调用 
 
-# admin(管理控制台)配置：
-演示地址：http://106.14.195.171:8085，提供了前置系统的界面化的管理功能
