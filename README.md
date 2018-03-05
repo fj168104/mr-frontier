@@ -12,7 +12,7 @@ mr-frontier-service 是springboot工程，直接启动即可
 # admin(管理控制台)配置：
 演示地址[测试环境]：http://106.14.195.171:8086，提供了前置系统的界面化的管理功能
 
-# 外部下系统交互
+# 系统与外部接口交互
 * /mr/rest/{appName} 为系统内部访问外部的URI
 * 内部访问外部api示例: http://106.14.195.171:8888/mr/rest/weather?city=上海 
 * 最重要访问的地址为https://www.sojson.com/open/api/weather/json.shtml
