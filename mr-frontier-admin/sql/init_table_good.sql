@@ -272,3 +272,42 @@ CREATE TABLE `biz_config` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COMMENT='调用配置表';
 
+
+-- ----------------------------
+-- Table structure for `oti_config`
+-- ----------------------------
+DROP TABLE IF EXISTS `oti_config`;
+CREATE TABLE `oti_config` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `msg_id` char(50) NOT NULL COMMENT '传输消息ID',
+  `msg_name_desp` char(200) DEFAULT '' COMMENT '传输消息描述',
+  `chaset` char(20) DEFAULT 'utf-8' COMMENT '消息编码',
+  `status` int(1) DEFAULT 1 COMMENT '任务状态 0禁用 1启用',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `modify_time` datetime DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COMMENT='报文基本定义';
+
+
+-- ----------------------------
+-- Table structure for `oti_field_library`
+-- ----------------------------
+DROP TABLE IF EXISTS `oti_field_library`;
+CREATE TABLE `oti_field_library` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `field_no` char(50) DEFAULT '0' COMMENT '字段号,可做用排序或者其它功能',
+  `msg_id` char(50) NOT NULL COMMENT '传输消息ID',
+  `field_tag` char(50) NOT NULL COMMENT '字段名',
+  `field_desp` char(200) DEFAULT '' COMMENT '字段描述',
+  `data_type` int(1) DEFAULT 1 COMMENT '1: string  2:int  3:double  4:object  5:array',
+  `length` char(20) DEFAULT '' COMMENT '基本类型使用， string：超过长度直接截断   int:超过长度抛错  double(如:18,2)：按照要求格式化',
+  `default` char(200) DEFAULT '' COMMENT '基本类型的默认值，根据不同类自动转化',
+  `table_field` char(200) DEFAULT '' COMMENT '针对data_type=5,从数据库映射字段',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `modify_time` datetime DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COMMENT='报文字段详细配置';
+
+
+
+
