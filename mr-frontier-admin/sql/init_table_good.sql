@@ -281,7 +281,7 @@ CREATE TABLE `oti_config` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `msg_id` char(50) NOT NULL COMMENT '传输消息ID',
   `msg_name_desp` char(200) DEFAULT '' COMMENT '传输消息描述',
-  `chaset` char(20) DEFAULT 'utf-8' COMMENT '消息编码',
+  `charset` char(20) DEFAULT 'utf-8' COMMENT '消息编码',
   `status` int(1) DEFAULT 1 COMMENT '任务状态 0禁用 1启用',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `modify_time` datetime DEFAULT NULL COMMENT '更新时间',
