@@ -5,7 +5,6 @@ import com.github.pagehelper.PageInfo;
 import com.jk.common.base.service.impl.BaseServiceImpl;
 import com.jk.modules.biz.model.BizRecord;
 import com.jk.modules.biz.service.BizRecordService;
-import com.jk.modules.log.model.Log;
 import com.xiaoleilu.hutool.date.DateUtil;
 import com.xiaoleilu.hutool.util.StrUtil;
 import org.apache.commons.lang3.StringUtils;

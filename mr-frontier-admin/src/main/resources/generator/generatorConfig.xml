@@ -23,9 +23,9 @@
 
         <!--数据库连接 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/good?useSSL=false"
+                        connectionURL="jdbc:mysql://47.100.7.81:3306/frontier?useSSL=false"
                         userId="root"
-                        password="1234">
+                        password="Root@1234">
         </jdbcConnection>
 
         <javaModelGenerator targetPackage="com.jk.model" targetProject="./src/main/java">
@@ -42,7 +42,7 @@
         <javaClientGenerator targetPackage="com.jk.mapper" targetProject="./src/main/java"
                              type="XMLMAPPER"/>
 
-        <table tableName="%">
+        <table tableName="oti_field_library">
             <!--mysql 配置-->
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
             <!--oracle 配置-->
