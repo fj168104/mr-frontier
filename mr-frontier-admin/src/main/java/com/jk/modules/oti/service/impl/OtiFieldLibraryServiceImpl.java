@@ -6,6 +6,7 @@ import com.jk.common.base.service.impl.BaseServiceImpl;
 import com.jk.modules.oti.mapper.OtiFieldLibraryMapper;
 import com.jk.modules.oti.model.OtiFieldLibrary;
 import com.jk.modules.oti.service.OtiFieldLibraryService;
+import com.jk.modules.sys.model.Permission;
 import com.jk.modules.sys.vo.TreeNode;
 import com.xiaoleilu.hutool.util.StrUtil;
 import io.jsonwebtoken.lang.Collections;
@@ -24,8 +25,6 @@ import java.util.List;
 @Service
 public class OtiFieldLibraryServiceImpl extends BaseServiceImpl<OtiFieldLibrary> implements OtiFieldLibraryService {
 
-	//demo 消息ID
-	private static String MSG_ID_DEMO = "demo";
 	@Resource
 	private OtiFieldLibraryMapper otiFieldLibraryMapper;
 
@@ -34,11 +33,7 @@ public class OtiFieldLibraryServiceImpl extends BaseServiceImpl<OtiFieldLibrary>
 	public PageInfo<OtiFieldLibrary> findPage(Integer pageNum, Integer pageSize, String msgId) {
 		Example example = new Example(OtiFieldLibrary.class);
 		Criteria criteria = example.createCriteria();
-		if (StrUtil.isNotEmpty(msgId)) {
-			criteria.andEqualTo("msgId", msgId);
-		} else {
-			criteria.andEqualTo("msgId", MSG_ID_DEMO);
-		}
+		criteria.andEqualTo("msgId", msgId);
 		PageHelper.startPage(pageNum, pageSize);
 		List<OtiFieldLibrary> otiFieldLibraryList = this.selectByExample(example);
 		return new PageInfo<OtiFieldLibrary>(otiFieldLibraryList);
@@ -74,6 +69,15 @@ public class OtiFieldLibraryServiceImpl extends BaseServiceImpl<OtiFieldLibrary>
 			}
 		}
 		return count1 == 1;
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public List<OtiFieldLibrary> findListByMsgId(String msgId) {
+		Example example = new Example(OtiFieldLibrary.class);
+		Criteria criteria = example.createCriteria();
+		criteria.andEqualTo("msgId", msgId);
+		return this.selectByExample(example);
 	}
 
 }

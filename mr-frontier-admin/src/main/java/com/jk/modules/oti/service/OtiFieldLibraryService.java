@@ -42,4 +42,6 @@ public interface OtiFieldLibraryService extends BaseService<OtiFieldLibrary> {
      */
     Boolean deleteFieldAndArrayOrObject(Long msgId);
 
+    public List<OtiFieldLibrary> findListByMsgId(String msgId);
+
 }

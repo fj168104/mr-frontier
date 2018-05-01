@@ -27,9 +27,6 @@ $(function () {
 			fieldDesp: {
 				required: true
 			},
-			parentId: {
-				required: true
-			},
 			dataType: {
 				required: true
 			},
@@ -48,7 +45,7 @@ $(function () {
 		submitHandler: function (form) {
 			$(form).ajaxSubmit({
 				type: 'post',
-				url: "/admin/oti/field/" + $("#msgId").val(),
+				url: '/admin/oti/field/add',
 				dataType: "json",
 				success: function (data) {
 					if (data.status == "success") {
