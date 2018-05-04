@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -37,6 +38,8 @@ public class OtiFieldLibraryController extends BaseController {
 	private OtiFieldLibraryService otiFieldLibraryService;
 	@Resource
 	private OtiConfigService otiConfigService;
+
+	private static volatile String s_msgId;
 
 	/**
 	 * 分页查询字段详细配置列表
@@ -63,6 +66,10 @@ public class OtiFieldLibraryController extends BaseController {
 			}
 
 			modelMap.put("msgId", msgId);
+			while(!Objects.isNull(s_msgId)) {
+				Thread.sleep(100);
+			}
+			s_msgId = msgId;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -78,14 +85,18 @@ public class OtiFieldLibraryController extends BaseController {
 	@ResponseBody
 	@GetMapping(value = "/list")
 	public List<OtiFieldLibrary> list(String msgId, ModelMap modelMap) throws Exception {
-		if(StrUtil.isEmpty(msgId)) msgId = MSG_ID_DEMO;
+		if (StrUtil.isEmpty(msgId)) {
+			msgId = s_msgId;
+			s_msgId = null;
+		}
+
+
 		if (Objects.isNull(otiConfigService.findByMsgId(msgId))) {
 			throw new ValidateException("msg config not exists");
 		}
 		modelMap.put("msgId", msgId);
 		return otiFieldLibraryService.findListByMsgId(msgId);
 	}
-
 
 	/**
 	 * 根据主键ID删除详情配置
@@ -182,9 +193,10 @@ public class OtiFieldLibraryController extends BaseController {
 	@OperationLog(value = "编辑详细配置")
 	@RequiresPermissions("oti-field:update")
 	@ResponseBody
-	@PutMapping(value = "/{id}")
+	@PutMapping(value = "/{msgId}/{id}")
 	public ModelMap updatePermission(HttpServletRequest request,
 									 @PathVariable("id") Long id,
+									 @PathVariable("msgId") String msgId,
 									 OtiFieldLibrary otiFieldLibrary) {
 		ModelMap messagesMap = new ModelMap();
 		log.debug("编辑详细配置参数! id= {}, otiFieldLibrary = {}", id, otiFieldLibrary);
@@ -196,10 +208,28 @@ public class OtiFieldLibraryController extends BaseController {
 		}
 
 		otiFieldLibraryService.updateSelective(otiFieldLibrary);
-		log.info("编辑详细配置成功! id= {}, permission = {}", id, otiFieldLibrary);
+		log.info("编辑详细配置成功! id= {}, msgId = {}", id, msgId);
 		messagesMap.put("status", SUCCESS);
 		messagesMap.put("message", "编辑成功!");
 		return messagesMap;
+	}
+
+	/**
+	 * 跳转到子节点字段详细配置添加页面
+	 *
+	 * @return
+	 */
+	@FormToken(save = true)
+	@RequiresPermissions("oti-field:create")
+	@GetMapping(value = "/addChild/{msgId}/{id}")
+	public String addChild(@PathVariable("id") Long id, @PathVariable("msgId") String msgId, ModelMap modelMap) {
+		log.info("跳转到子节点详细配置编辑页面！ msgid = {}, id = {}", msgId, id);
+		OtiFieldLibrary otiFieldLibrary = otiFieldLibraryService.findById(id);
+
+		modelMap.put("model", otiFieldLibrary);
+		modelMap.put("msgId", msgId);
+		modelMap.put("parentId", id);
+		return BASE_PATH + "otiField-add";
 	}
 
 }

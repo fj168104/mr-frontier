@@ -70,11 +70,19 @@ $(function () {
 	var checkedValue = $("input[name='dataType']:checked").val();
 	if (checkedValue == '5') {
 		$(".fieldDefaultDiv").hide();
+		$(".fieldLengthDiv").hide();
+		$(".tableFieldDiv").show();
+		$(".requireDiv").hide();
 	} else if (checkedValue == '4') {
-		$(".tableFieldDiv").hide();
 		$(".fieldDefaultDiv").hide();
-	} else {
+		$(".fieldLengthDiv").hide();
 		$(".tableFieldDiv").hide();
+		$(".requireDiv").hide();
+	} else {
+		$(".fieldDefaultDiv").show();
+		$(".fieldLengthDiv").show();
+		$(".tableFieldDiv").hide();
+		$(".requireDiv").show();
 	}
 
 	//基本类型不需要显示parentId
@@ -88,11 +96,19 @@ $(function () {
 		var value = $(this).val();
 		if (value == '5') {
 			$(".fieldDefaultDiv").hide();
+			$(".fieldLengthDiv").hide();
+			$(".tableFieldDiv").show();
+			$(".requireDiv").hide();
 		} else if (value == '4') {
-			$(".tableFieldDiv").hide();
 			$(".fieldDefaultDiv").hide();
-		} else {
+			$(".fieldLengthDiv").hide();
 			$(".tableFieldDiv").hide();
+			$(".requireDiv").hide();
+		} else {
+			$(".fieldDefaultDiv").show();
+			$(".fieldLengthDiv").show();
+			$(".tableFieldDiv").hide();
+			$(".requireDiv").show();
 		}
 	});
 

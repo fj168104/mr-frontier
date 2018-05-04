@@ -239,4 +239,19 @@ public class OtiConfigController extends BaseController {
 		return flag;
 	}
 
+	/**
+	 * 跳转到解析配置管理编辑页面
+	 *
+	 * @return
+	 */
+	@RequiresPermissions("oti-field:update")
+	@GetMapping(value = "/field/{msgId}")
+	public String editFields(@PathVariable("msgId") String msgId, ModelMap modelMap) {
+//		OtiConfig otiConfig = otiConfigService.findById(id);
+		log.info("跳转到编辑页面！id = {}", msgId);
+//		modelMap.put("model", otiConfig);
+		return "redirect:/admin/oti/field?msgId=" + msgId;
+	}
+
+
 }

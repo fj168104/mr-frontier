@@ -84,6 +84,12 @@
                     <a title="删除" href="javascript:;"
                        th:onclick="'javascript:otiConfig_del(this, \'/admin/oti/config/'+*{id}+'\');'" class="ml-5"
                        style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                    <a title="字段配置" th:href="'/admin/oti/config/field/' + *{msgId}" class="ml-5"
+                       style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                    <a title="下载配置" href="javascript:;"
+                       th:onclick="'javascript:otiConfig_download(this, \'/admin/oti/config/'+*{id}+'\');'" class="ml-5"
+                       style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+
                 </td>
             </tr>
             </tbody>

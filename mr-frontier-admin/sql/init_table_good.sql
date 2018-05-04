@@ -295,19 +295,18 @@ CREATE TABLE `oti_config` (
 DROP TABLE IF EXISTS `oti_field_library`;
 CREATE TABLE `oti_field_library` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `field_no` char(50) DEFAULT '0' COMMENT '字段号,可做用排序或者其它功能',
   `msg_id` char(50) NOT NULL COMMENT '传输消息ID',
   `field_tag` char(50) NOT NULL COMMENT '字段名',
   `field_desp` char(200) DEFAULT '' COMMENT '字段描述',
   `data_type` int(1) DEFAULT 1 COMMENT '1: string  2:int  3:double  4:object  5:array',
   `field_length` char(20) DEFAULT '' COMMENT '基本类型使用， string：超过长度直接截断   int:超过长度抛错  double(如:18,2)：按照要求格式化',
   `field_default` char(200) DEFAULT '' COMMENT '基本类型的默认值，根据不同类自动转化',
-  `table_field` char(200) DEFAULT '' COMMENT '针对data_type=5,从数据库映射字段',
+  `table_field` char(200) DEFAULT '' COMMENT '针对data_type=5,从数据库映射字段, 这里写出查询的SQL',
+  `parent_id` bigint(20) DEFAULT NULL COMMENT '父节点id',
+  `is_require` bit(1) DEFAULT 0 COMMENT '配置是否必填，1：必填，0非必填',
+  `sort` bigint(20) DEFAULT NULL COMMENT '排序号',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `modify_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COMMENT='报文字段详细配置';
-
-
-
 

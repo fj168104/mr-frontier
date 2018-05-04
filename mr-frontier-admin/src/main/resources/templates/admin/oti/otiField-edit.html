@@ -91,11 +91,11 @@
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>是否必填：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                 <div class="radio-box">
-                    <input type="radio" id="require-0" th:name="isRequire" th:value="0" th:checked="*{isRequire} == '0'"/>
+                    <input type="radio" id="require-0" th:name="isRequire" th:value="0" th:checked="*{isRequire} == false"/>
                     <label for="require-0">非必填</label>
                 </div>
                 <div class="radio-box">
-                    <input type="radio" id="require-1" th:name="isRequire" th:value="1" th:checked="*{isRequire} == '1'"/>
+                    <input type="radio" id="require-1" th:name="isRequire" th:value="1" th:checked="*{isRequire} == true"/>
                     <label for="require-1">必填</label>
                 </div>
             </div>
