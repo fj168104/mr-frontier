@@ -102,7 +102,7 @@ public class OtiConfigServiceImpl extends BaseServiceImpl<OtiConfig> implements 
 	}
 
 	@Override
-	public byte[] createXmlConfig(List<Object> ids) {
+	public Object createXmlConfig(List<Object> ids, Class clazz) {
 		String encoding = "UTF-8";
 		Document document = DocumentHelper.createDocument();
 
@@ -119,7 +119,7 @@ public class OtiConfigServiceImpl extends BaseServiceImpl<OtiConfig> implements 
 			buildMessage(message, otiConfig.getMsgId(), null);
 
 		}
-		return writeDocument(document, encoding);
+		return writeDocument(document, encoding, clazz);
 	}
 
 	private void buildMessage(Element message, String msgId, Long parentId) {
@@ -132,7 +132,7 @@ public class OtiConfigServiceImpl extends BaseServiceImpl<OtiConfig> implements 
 				otiFieldLibrarys.add(otiFieldLibrary);
 			} else if (!Objects.isNull(parentId)
 					&& !Objects.isNull(otiFieldLibrary.getParentId())
-					&& parentId == otiFieldLibrary.getParentId()) {
+					&& Objects.equals(parentId, otiFieldLibrary.getParentId())) {
 				otiFieldLibrarys.add(otiFieldLibrary);
 			}
 		}
@@ -161,8 +161,8 @@ public class OtiConfigServiceImpl extends BaseServiceImpl<OtiConfig> implements 
 	 * @param document
 	 * @throws Exception
 	 */
-	public byte[] writeDocument(Document document, String charset) {
-		byte[] b = null;
+	public Object writeDocument(Document document, String charset, Class clazz) {
+		Object b = null;
 		String filePath = System.getProperty("java.io.tmpdir")
 				+ File.separator
 				+ UUID.randomUUID().toString() + ".xml";
@@ -179,8 +179,12 @@ public class OtiConfigServiceImpl extends BaseServiceImpl<OtiConfig> implements 
 			// 关闭操作
 			writer.close();
 
-			b = IoUtil.readBytes(new FileInputStream(filePath));
-
+			String s = clazz.getTypeName();
+			if(clazz.getTypeName().equals("java.lang.String")){
+				b =IoUtil.read(new FileInputStream(filePath), charset);
+			}else{
+				b = IoUtil.readBytes(new FileInputStream(filePath));
+			}
 			FileUtil.del(filePath);
 
 		} catch (Exception e) {

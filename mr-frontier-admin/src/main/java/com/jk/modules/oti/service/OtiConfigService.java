@@ -46,5 +46,5 @@ public interface OtiConfigService extends BaseService<OtiConfig> {
 
 	int deleteCascadeByIds(List<Object> ids);
 
-	byte[] createXmlConfig(List<Object> ids);
+	Object createXmlConfig(List<Object> ids, Class clazz);
 }

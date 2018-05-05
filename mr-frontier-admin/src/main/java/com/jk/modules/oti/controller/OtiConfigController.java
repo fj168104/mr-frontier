@@ -281,7 +281,7 @@ public class OtiConfigController extends BaseController {
 				log.info("下载配置不存在!");
 				return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 			}
-			byte[] b = otiConfigService.createXmlConfig(ids);
+			byte[] b = (byte[])otiConfigService.createXmlConfig(ids, byte[].class);
 
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
@@ -292,7 +292,34 @@ public class OtiConfigController extends BaseController {
 			log.error("下载配置失败! ids = {}, e = {}", ids, e);
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
+	}
+
+	/**
+	 * 预览下载文件
+	 *
+	 * @return
+	 * @throws IOException
+	 */
+	@GetMapping(value = "/viewDownload/{ids}")
+	public ResponseEntity<String> viewDownload(@PathVariable("ids") List<Object> ids) throws IOException {
+		try {
+			log.debug("预览配置! ids = {}", ids);
+
+			if (null == ids) {
+				log.info("配置不存在!");
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+			}
+			String result = (String)otiConfigService.createXmlConfig(ids, String.class);
+			result = result.replace("<", "&lt;")
+					.replace(">", "&gt;").replace("&lt;", "<br/> &lt;");
+			return new ResponseEntity<String>(result, HttpStatus.OK);
+
+		} catch (Exception e) {
+			log.error("下载配置失败! ids = {}, e = {}", ids, e);
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+		}
 
 	}
+
 
 }
