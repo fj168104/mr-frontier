@@ -41,6 +41,8 @@
                 <a href="javascript:;"
                    th:onclick="'javascript:otiConfig_add(\'添加解析配置\',\'/admin/oti/config/add\',\'800\',\'500\');'"
                    class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加解析配置</a>
+                <a href="javascript:;" th:onclick="'javascript:oti_config_download();'" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 下载配置</a>
+
             </span>
             <span class="r">共有数据：<strong th:text="${pageInfo?.total}" id="total">54</strong> 条</span>
         </div>
@@ -50,7 +52,7 @@
                 <th scope="col" colspan="6">解析配置列表</th>
             </tr>
             <tr class="text-c">
-                <!--<th width="25"><input type="checkbox" name="" value=""/></th>-->
+                <th width="25"><input type="checkbox" name="" value=""/></th>
                 <th>传输消息ID</th>
                 <th>传输消息描述</th>
                 <th>消息编码</th>
@@ -61,7 +63,7 @@
             </thead>
             <tbody>
             <tr class="text-c" th:each="model:${pageInfo?.list}" th:object="${model}">
-                <!--<td><input type="checkbox" value="2" name=""/></td>-->
+                <td><input type="checkbox" th:value="*{id}" id=""/></td>
                 <td th:text="*{msgId}">1</td>
                 <td th:text="*{msgNameDesp}">2</td>
                 <td th:text="*{charset}">3</td>
@@ -82,13 +84,10 @@
                        th:onclick="'javascript:otiConfig_edit(\'解析配置编辑\',\'/admin/oti/config/edit/'+*{id}+'\',\'800\',\'500\');'"
                        class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
                     <a title="删除" href="javascript:;"
-                       th:onclick="'javascript:otiConfig_del(this, \'/admin/oti/config/'+*{id}+'\');'" class="ml-5"
+                       th:onclick="'javascript:otiConfig_del(this,\'' +*{msgId}+ '\', \'/admin/oti/config/'+*{id}+'\');'" class="ml-5"
                        style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
                     <a title="字段配置" th:href="'/admin/oti/config/field/' + *{msgId}" class="ml-5"
-                       style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
-                    <a title="下载配置" href="javascript:;"
-                       th:onclick="'javascript:otiConfig_download(this, \'/admin/oti/config/'+*{id}+'\');'" class="ml-5"
-                       style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                       style="text-decoration:none"><i class="Hui-iconfont">&#xe72d;</i></a>
 
                 </td>
             </tr>

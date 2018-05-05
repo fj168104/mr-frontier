@@ -225,6 +225,9 @@ public class OtiFieldLibraryController extends BaseController {
 	public String addChild(@PathVariable("id") Long id, @PathVariable("msgId") String msgId, ModelMap modelMap) {
 		log.info("跳转到子节点详细配置编辑页面！ msgid = {}, id = {}", msgId, id);
 		OtiFieldLibrary otiFieldLibrary = otiFieldLibraryService.findById(id);
+		if(otiFieldLibrary.getDataType() != 4 && otiFieldLibrary.getDataType() != 5){
+			throw new ValidateException("Message DataType must be object or array!");
+		}
 
 		modelMap.put("model", otiFieldLibrary);
 		modelMap.put("msgId", msgId);

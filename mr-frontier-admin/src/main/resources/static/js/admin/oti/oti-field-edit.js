@@ -27,9 +27,7 @@ $(function () {
 			fieldDesp: {
 				required: true
 			},
-			parentId: {
-				required: true
-			},
+
 			dataType: {
 				required: true
 			},
@@ -86,10 +84,10 @@ $(function () {
 	}
 
 	//基本类型不需要显示parentId
-	var parentIdValue = $("#parentId").val();
-	if ($("#parentId").val() == "") {
-		$(".parentIdDiv").hide();
-	}
+	// var parentIdValue = $("#parentId").val();
+	// if ($("#parentId").val() == "") {
+	// 	$(".parentIdDiv").hide();
+	// }
 
 	//为iCheck绑定选中事件
 	$("input[name='dataType']").on('ifChecked', function (event) {

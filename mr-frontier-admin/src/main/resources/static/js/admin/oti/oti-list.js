@@ -113,7 +113,12 @@ function otiConfig_add(title, url, w, h) {
 }
 
 /*调用配置-删除*/
-function otiConfig_del(obj, url) {
+function otiConfig_del(obj, msgId, url) {
+
+	if(msgId == "demo_msg"){
+		errorMessage('demo_msg 不能删除!');
+		return false;
+	}
 	layer.confirm('确认要删除吗？', function (index) {
 		//此处请求后台程序，下方是成功后的前台处理……
 		$.ajax({
@@ -217,4 +222,32 @@ function otiConfig_col(obj, url) {
 		}
 	});
 }
+
+/**
+ * 下载配置
+ */
+function oti_config_download() {
+
+	//复选框选择id集合
+	var selectedIds = [];
+	$(".text-c :checkbox").each(function (index, ele) {
+		var id = $(this).val();
+		var isSelected = this.checked;
+		if (isSelected) {
+			selectedIds.push(id);
+		} else {
+			selectedIds.removeObject(id);
+		}
+	});
+
+	if (selectedIds == "") {
+		errorMessage("请先选择一条记录!");
+		return false;
+	}
+
+	window.location.href="/admin/oti/config/download/" + selectedIds;
+
+}
+
+
 

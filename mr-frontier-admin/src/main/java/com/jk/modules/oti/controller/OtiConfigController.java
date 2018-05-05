@@ -1,19 +1,30 @@
 package com.jk.modules.oti.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.google.common.collect.Lists;
 import com.jk.common.annotation.OperationLog;
 import com.jk.common.base.controller.BaseController;
 import com.jk.common.security.token.FormToken;
+import com.jk.modules.biz.model.BizRecord;
 import com.jk.modules.oti.model.OtiConfig;
 import com.jk.modules.oti.service.OtiConfigService;
+import com.jk.modules.oti.service.OtiFieldLibraryService;
+import com.xiaoleilu.hutool.io.FileUtil;
+import com.xiaoleilu.hutool.io.IoUtil;
+import com.xiaoleilu.hutool.io.resource.ClassPathResource;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,6 +40,7 @@ public class OtiConfigController extends BaseController {
 
 	@Resource
 	private OtiConfigService otiConfigService;
+
 
 	/**
 	 * 分页查询调用配置列表
@@ -73,7 +85,9 @@ public class OtiConfigController extends BaseController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("解析配置不存在!");
 		}
 
-		otiConfigService.deleteById(id);
+		List<Object> list = Lists.newArrayList();
+		list.add(id);
+		otiConfigService.deleteCascadeByIds(list);
 		log.info("删除解析配置成功! id = {}", id);
 		return ResponseEntity.ok("已删除!");
 	}
@@ -94,7 +108,7 @@ public class OtiConfigController extends BaseController {
 			log.info("批量删除解析配置不存在! ids = {}", ids);
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
-		otiConfigService.deleteByCondition(OtiConfig.class, "id", ids);
+		otiConfigService.deleteCascadeByIds(ids);
 		log.info("批量删除解析配置成功! ids = {}", ids);
 
 		return ResponseEntity.ok(null);
@@ -247,11 +261,38 @@ public class OtiConfigController extends BaseController {
 	@RequiresPermissions("oti-field:update")
 	@GetMapping(value = "/field/{msgId}")
 	public String editFields(@PathVariable("msgId") String msgId, ModelMap modelMap) {
-//		OtiConfig otiConfig = otiConfigService.findById(id);
 		log.info("跳转到编辑页面！id = {}", msgId);
 //		modelMap.put("model", otiConfig);
 		return "redirect:/admin/oti/field?msgId=" + msgId;
 	}
 
+	/**
+	 * 下载文件
+	 *
+	 * @return
+	 * @throws IOException
+	 */
+	@GetMapping(value = "/download/{ids}")
+	public ResponseEntity<byte[]> download(@PathVariable("ids") List<Object> ids) throws IOException {
+		try {
+			log.debug("下载配置! ids = {}", ids);
+
+			if (null == ids) {
+				log.info("下载配置不存在!");
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+			}
+			byte[] b = otiConfigService.createXmlConfig(ids);
+
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+			headers.setContentDispositionFormData("attachment", "oti_config.xml");
+			return new ResponseEntity<byte[]>(b, headers, HttpStatus.OK);
+
+		} catch (Exception e) {
+			log.error("下载配置失败! ids = {}, e = {}", ids, e);
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+		}
+
+	}
 
 }
