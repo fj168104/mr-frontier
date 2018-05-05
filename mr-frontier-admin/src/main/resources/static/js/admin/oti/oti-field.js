@@ -45,10 +45,10 @@ Menu.initColumn = function () {
 					return '<span class="label label-default radius">double</span>';
 				}
 				if (item.dataType == 4) {
-					return '<span class="label label-default radius">object</span>';
+					return '<span class="label label-secondary radius">object</span>';
 				}
 				if (item.dataType == 5) {
-					return '<span class="label label-default radius">array</span>';
+					return '<span class="label label-warning radius">array</span>';
 				}
 			}
 		},

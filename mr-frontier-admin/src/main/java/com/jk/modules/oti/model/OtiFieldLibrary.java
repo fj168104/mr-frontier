@@ -49,7 +49,7 @@ public class OtiFieldLibrary extends BaseEntity {
     /**
      * 配置是否必填，1：必填，0非必填
      */
-    private Boolean isRequire;
+    private Boolean isRequire = false;
 
     /**
      * 排序号

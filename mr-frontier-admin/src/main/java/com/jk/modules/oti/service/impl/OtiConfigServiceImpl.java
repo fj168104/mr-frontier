@@ -12,6 +12,7 @@ import com.jk.modules.oti.service.OtiConfigService;
 import com.xiaoleilu.hutool.io.FileUtil;
 import com.xiaoleilu.hutool.io.IoUtil;
 import com.xiaoleilu.hutool.util.StrUtil;
+import lombok.Data;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -108,6 +109,7 @@ public class OtiConfigServiceImpl extends BaseServiceImpl<OtiConfig> implements 
 		Element root = document.addElement("AppInstance");
 		Element messageList = root.addElement("MessageList");
 		for (Object id : ids) {
+			if(StrUtil.isEmpty(String.valueOf(id))) continue;
 			OtiConfig otiConfig = this.findById(Long.parseLong(String.valueOf(id)));
 			if (Objects.isNull(otiConfig)) continue;
 			Element message = messageList.addElement("Message")
@@ -138,14 +140,15 @@ public class OtiConfigServiceImpl extends BaseServiceImpl<OtiConfig> implements 
 		for (OtiFieldLibrary otiFieldLibrary : otiFieldLibrarys) {
 			Element field = message.addElement("Field")
 					.addAttribute("FieldTag", otiFieldLibrary.getFieldTag())
-					.addAttribute("Description", otiFieldLibrary.getFieldDesp());
-			if (DataType.ARRAY.code == otiFieldLibrary.getDataType() && StrUtil.isEmpty(otiFieldLibrary.getTableField())) {
+					.addAttribute("Description", otiFieldLibrary.getFieldDesp())
+					.addAttribute("DataType", DataType.getName(otiFieldLibrary.getDataType()));
+			if (DataType.ARRAY.code == otiFieldLibrary.getDataType()) {
 				field.addAttribute("TableField", otiFieldLibrary.getTableField());
-				buildMessage(field.addElement("Message"), msgId, otiFieldLibrary.getParentId());
+				buildMessage(field.addElement("Message"), msgId, otiFieldLibrary.getId());
 			} else if (DataType.OBJECT.code == otiFieldLibrary.getDataType()) {
-				buildMessage(field.addElement("Message"), msgId, otiFieldLibrary.getParentId());
+				buildMessage(field.addElement("Message"), msgId, otiFieldLibrary.getId());
 			} else {
-				message.addAttribute("Length", otiFieldLibrary.getFieldLength())
+				field.addAttribute("Length", otiFieldLibrary.getFieldLength())
 						.addAttribute("DefaultValue", otiFieldLibrary.getFieldDefault())
 						.addAttribute("IsRequire", otiFieldLibrary.getIsRequire() ? "Y" : "N");
 			}
@@ -181,6 +184,7 @@ public class OtiConfigServiceImpl extends BaseServiceImpl<OtiConfig> implements 
 			FileUtil.del(filePath);
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			log.error(e.getMessage());
 		}
 		return b;
@@ -201,6 +205,13 @@ public class OtiConfigServiceImpl extends BaseServiceImpl<OtiConfig> implements 
 		DataType(int code, String name) {
 			this.code = code;
 			this.name = name;
+		}
+		public static String getName(int sCode){
+			for(DataType dataType : DataType.values()){
+				if(sCode == dataType.code)
+					return dataType.name;
+			}
+			return DataType.STRING.name;
 		}
 	}
 }
