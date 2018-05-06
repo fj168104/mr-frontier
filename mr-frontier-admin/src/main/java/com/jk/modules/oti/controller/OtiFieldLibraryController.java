@@ -135,7 +135,7 @@ public class OtiFieldLibraryController extends BaseController {
 	public String add(@PathVariable("msgId") String msgId, ModelMap modelMap) {
 		log.info("跳转到配置添加页面!");
 		modelMap.put("msgId", msgId);
-		return BASE_PATH + "/otiField-add";
+		return BASE_PATH + "otiField-add";
 	}
 
 	/**
