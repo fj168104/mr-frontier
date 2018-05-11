@@ -5,6 +5,7 @@ import com.jk.common.base.service.BaseService;
 import com.jk.modules.oti.model.OtiConfig;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by feng on 2018/4/13.
@@ -47,4 +48,6 @@ public interface OtiConfigService extends BaseService<OtiConfig> {
 	int deleteCascadeByIds(List<Object> ids);
 
 	Object createXmlConfig(List<Object> ids, Class clazz);
+
+	Map<String, Object> outputOtiConfig(String msgId);
 }

@@ -27,10 +27,7 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
 import java.io.*;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Created by feng on 18-3-3
@@ -109,7 +106,7 @@ public class OtiConfigServiceImpl extends BaseServiceImpl<OtiConfig> implements 
 		Element root = document.addElement("AppInstance");
 		Element messageList = root.addElement("MessageList");
 		for (Object id : ids) {
-			if(StrUtil.isEmpty(String.valueOf(id))) continue;
+			if (StrUtil.isEmpty(String.valueOf(id))) continue;
 			OtiConfig otiConfig = this.findById(Long.parseLong(String.valueOf(id)));
 			if (Objects.isNull(otiConfig)) continue;
 			Element message = messageList.addElement("Message")
@@ -180,9 +177,9 @@ public class OtiConfigServiceImpl extends BaseServiceImpl<OtiConfig> implements 
 			writer.close();
 
 			String s = clazz.getTypeName();
-			if(clazz.getTypeName().equals("java.lang.String")){
-				b =IoUtil.read(new FileInputStream(filePath), charset);
-			}else{
+			if (clazz.getTypeName().equals("java.lang.String")) {
+				b = IoUtil.read(new FileInputStream(filePath), charset);
+			} else {
 				b = IoUtil.readBytes(new FileInputStream(filePath));
 			}
 			FileUtil.del(filePath);
@@ -194,6 +191,54 @@ public class OtiConfigServiceImpl extends BaseServiceImpl<OtiConfig> implements 
 		return b;
 	}
 
+	public Map<String, Object> outputOtiConfig(String msgId) {
+		Map<String, Object> resultMap = new LinkedHashMap<>();
+		OtiConfig otiConfig = otiConfigMapper.findByMsgId(msgId);
+		if (Objects.isNull(otiConfig)) {
+			resultMap.put("error", String.format("msgId[%s] config not exist", msgId));
+		} else {
+			resultMap.put("Id", otiConfig.getMsgId());
+			resultMap.put("Description", otiConfig.getMsgNameDesp());
+			resultMap.put("Encoding", otiConfig.getCharset());
+			List<OtiFieldLibrary> otiFieldLibraries = otiFieldLibraryMapper.findFieldLibraryByMsgId(msgId);
+			resultMap.put("Fields", buildOtiConfigToMap(otiFieldLibraries, new LinkedHashMap<>(), null));
+		}
+		return resultMap;
+	}
+
+	private Map<String, Object> buildOtiConfigToMap(List<OtiFieldLibrary> otiFieldLibraries,
+													Map<String, Object> resultMap,
+													Long parentId) {
+		for (OtiFieldLibrary otiFieldLibrary : otiFieldLibraries) {
+			if (Objects.isNull(parentId) && Objects.isNull(otiFieldLibrary.getParentId())
+					|| parentId == otiFieldLibrary.getParentId()) {
+				log.info(String.valueOf(parentId));
+				log.info(String.valueOf(otiFieldLibrary.getParentId()));
+
+				Map<String, Object> fieldMap = new LinkedHashMap<>();
+				fieldMap.put("FieldTag", otiFieldLibrary.getFieldTag());
+				fieldMap.put("Description", otiFieldLibrary.getFieldDesp());
+				fieldMap.put("DataType", DataType.getName(otiFieldLibrary.getDataType()));
+				if (otiFieldLibrary.getDataType() == DataType.OBJECT.code) {
+					fieldMap.put("Fields", buildOtiConfigToMap(otiFieldLibraries,
+							new LinkedHashMap<>(),
+							otiFieldLibrary.getId()));
+				} else if (otiFieldLibrary.getDataType() == DataType.ARRAY.code) {
+					fieldMap.put("TableField", otiFieldLibrary.getTableField());
+					fieldMap.put("Fields", buildOtiConfigToMap(otiFieldLibraries,
+							new LinkedHashMap<>(),
+							otiFieldLibrary.getId()));
+				} else {
+					fieldMap.put("Length", otiFieldLibrary.getFieldLength());
+					fieldMap.put("DefaultValue", otiFieldLibrary.getFieldDefault());
+					fieldMap.put("IsRequire", otiFieldLibrary.getIsRequire());
+				}
+				resultMap.put(otiFieldLibrary.getFieldTag(), fieldMap);
+			}
+		}
+		return resultMap;
+	}
+
 	@Getter
 	static enum DataType {
 
@@ -203,16 +248,17 @@ public class OtiConfigServiceImpl extends BaseServiceImpl<OtiConfig> implements 
 		OBJECT(4, "object"),
 		ARRAY(5, "array");
 
-		private final int code;
-		private final String name;
+		public int code;
+		public String name;
 
 		DataType(int code, String name) {
 			this.code = code;
 			this.name = name;
 		}
-		public static String getName(int sCode){
-			for(DataType dataType : DataType.values()){
-				if(sCode == dataType.code)
+
+		public static String getName(int sCode) {
+			for (DataType dataType : DataType.values()) {
+				if (sCode == dataType.code)
 					return dataType.name;
 			}
 			return DataType.STRING.name;

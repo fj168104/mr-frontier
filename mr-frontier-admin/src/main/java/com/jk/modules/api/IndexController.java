@@ -1,17 +1,30 @@
 package com.jk.modules.api;
 
+import com.jk.modules.oti.mapper.OtiConfigMapper;
+import com.jk.modules.oti.mapper.OtiFieldLibraryMapper;
+import com.jk.modules.oti.model.OtiFieldLibrary;
+import com.jk.modules.oti.service.OtiConfigService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * @author cuiP
  * Created by JK on 2017/3/7.
  */
 @RestController("APIIndexController")
-public class IndexController extends BaseController{
+public class IndexController extends BaseController {
 
-//    @ApiOperation(value="测试接口", notes="测试接口详细描述")
+	@Resource
+	private OtiConfigService otiConfigService;
+
+	//    @ApiOperation(value="测试接口", notes="测试接口详细描述")
 //    @ApiImplicitParams({
 //            @ApiImplicitParam(name = "ordersId", value = "订单ID", required = true, dataType = "long", paramType = "path", defaultValue = "1")
 //    })
@@ -21,12 +34,19 @@ public class IndexController extends BaseController{
 //            @ApiResponse(code = 403, message = "请求未授权!"),
 //            @ApiResponse(code = 404, message = "请求资源未找到!"),
 //            @ApiResponse(code = 500, message = "请求失败!")})
-    @GetMapping(value = "/index")
-    public ModelMap index(){
-        ModelMap map = new ModelMap();
-        map.addAttribute("hello", "你好");
-        map.addAttribute("veryGood", "很好");
+	@GetMapping(value = "/index")
+	public ModelMap index() {
+		ModelMap map = new ModelMap();
+		map.addAttribute("hello", "你好");
+		map.addAttribute("veryGood", "很好");
 
-        return map;
-    }
+		return map;
+	}
+
+	@GetMapping(value = "/oti_msg/{msgId}")
+	public ModelMap outputOtiConfig(@PathVariable("msgId") String msgId) {
+		ModelMap map = new ModelMap();
+		map.put("message" ,otiConfigService.outputOtiConfig(msgId));
+		return map;
+	}
 }

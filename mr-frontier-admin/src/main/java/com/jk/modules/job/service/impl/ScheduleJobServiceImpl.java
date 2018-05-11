@@ -139,7 +139,7 @@ public class ScheduleJobServiceImpl extends BaseServiceImpl<ScheduleJob> impleme
             ScheduleUtils.createScheduleJob(schedulerFactoryBean.getScheduler(), scheduleJob);
         }else {
             //当cron表达式和原来不一致才做更新
-            if(!scheduleJob.getCron().equals(record.getCron())){
+            if(!scheduleJob.getCron().equals(record.getCron())) {
                 //更新调度任务
                 ScheduleUtils.updateScheduleJob(schedulerFactoryBean.getScheduler(), scheduleJob);
             }
