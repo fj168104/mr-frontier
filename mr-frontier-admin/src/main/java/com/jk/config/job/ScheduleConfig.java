@@ -18,7 +18,6 @@ public class ScheduleConfig {
     public SchedulerFactoryBean schedulerFactoryBean(DataSource dataSource) {
         SchedulerFactoryBean factory = new SchedulerFactoryBean();
         factory.setDataSource(dataSource);
-
         //quartz参数
 //        Properties prop = new Properties();
 //        prop.put("org.quartz.scheduler.instanceName", "GoodClusterScheduler");

@@ -295,6 +295,24 @@ public class OtiConfigController extends BaseController {
 	}
 
 	/**
+	 * 下载Demo
+	 *
+	 * @return
+	 * @throws IOException
+	 */
+	@GetMapping(value = "/download/demo")
+	public ResponseEntity<byte[]> downloadDemo() throws IOException {
+		ClassPathResource resource=  new ClassPathResource("oti-client_demo.zip");
+
+		byte[] b = IoUtil.readBytes(resource.getStream());
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+		headers.setContentDispositionFormData("attachment", "oti-client_demo.zip");
+		return new ResponseEntity<byte[]>(b, headers, HttpStatus.OK);
+	}
+
+	/**
 	 * 预览下载文件
 	 *
 	 * @return

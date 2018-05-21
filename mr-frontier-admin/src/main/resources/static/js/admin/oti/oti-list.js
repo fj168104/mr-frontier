@@ -248,6 +248,14 @@ function oti_config_download() {
 }
 
 /**
+ * 下载demo
+ */
+function oti_demo_download() {
+
+	window.location.href = "/admin/oti/config/download/demo";
+}
+
+/**
  * 下载配置
  */
 function oti_config_view() {
