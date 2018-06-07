@@ -259,7 +259,7 @@ public class OtiConfigController extends BaseController {
 	 * @return
 	 */
 	@RequiresPermissions("oti-field:update")
-	@GetMapping(value = "/field/{msgId}")
+	@GetMapping(value = "/field/{msgId:.+}")
 	public String editFields(@PathVariable("msgId") String msgId, ModelMap modelMap) {
 		log.info("跳转到编辑页面！id = {}", msgId);
 //		modelMap.put("model", otiConfig);

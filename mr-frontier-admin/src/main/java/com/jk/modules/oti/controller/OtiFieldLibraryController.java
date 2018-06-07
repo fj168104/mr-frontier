@@ -131,7 +131,7 @@ public class OtiFieldLibraryController extends BaseController {
 	 */
 	@FormToken(save = true)
 	@RequiresPermissions("oti-field:create")
-	@GetMapping("/add/{msgId}")
+	@GetMapping("/add/{msgId:.+}")
 	public String add(@PathVariable("msgId") String msgId, ModelMap modelMap) {
 		log.info("跳转到配置添加页面!");
 		modelMap.put("msgId", msgId);
