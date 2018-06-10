@@ -10,7 +10,7 @@ $(function () {
             msgId:{
                 required:true,
                 minlength:4,
-                maxlength:16,
+                maxlength:100,
                 remote: {
                     url: "/admin/oti/config/isExist",
                     type: "get",

@@ -42,6 +42,10 @@
                     <label for="sex-3">double</label>
                 </div>
                 <div class="radio-box">
+                    <input type="radio" id="sex-6" th:name="dataType" th:value="6"/>
+                    <label for="sex-3">bool</label>
+                </div>
+                <div class="radio-box">
                     <input type="radio" id="sex-4" th:name="dataType" th:value="4"/>
                     <label for="sex-3">object</label>
                 </div>
@@ -53,31 +57,31 @@
         </div>
 
         <div class="row cl fieldLengthDiv">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>字段长度：</label>
+            <label class="form-label col-xs-4 col-sm-3">字段长度：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text" class="input-text" placeholder="字段长度" id="fieldLength" th:name="fieldLength"/>
             </div>
         </div>
 
         <div class="row cl fieldDefaultDiv">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>默认值：</label>
+            <label class="form-label col-xs-4 col-sm-3">默认值：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text" class="input-text" placeholder="默认值" id="fieldDefault" th:name="fieldDefault"/>
             </div>
         </div>
 
         <div class="row cl tableFieldDiv">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>查询的SQL：</label>
+            <label class="form-label col-xs-4 col-sm-3">查询的SQL：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text" class="input-text" placeholder="查询的SQL" id="tableField" th:name="tableField"/>
             </div>
         </div>
 
         <div class="row cl parentIdDiv">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>父节点：</label>
+            <label class="form-label col-xs-4 col-sm-3">父节点：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text" class="input-text" placeholder="父节点" id="parentId" th:name="parentId"
-                       th:value="*{parentId}" contenteditable="false"/>
+                       th:value="*{parentId}" th:contenteditable="false" />
             </div>
         </div>
 
@@ -85,7 +89,7 @@
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>是否必填：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                 <div class="radio-box">
-                    <input type="radio" id="require-0" th:name="isRequire" th:value="0"/>
+                    <input type="radio" id="require-0" th:name="isRequire" th:value="0" th:checked="true"/>
                     <label for="require-0">非必填</label>
                 </div>
                 <div class="radio-box">

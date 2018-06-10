@@ -25,7 +25,7 @@ Menu.initColumn = function () {
 		{field: 'selectItem', radio: true},
 		{title: '字段ID', field: 'id', visible: false, align: 'center', valign: 'middle', width: '7%'},
 		// {title: '传输消息ID', field: 'msgId', visible: false, align: 'center', valign: 'middle', width: '15%'},
-		{title: '字段名', field: 'fieldTag', visible: false, align: 'center', valign: 'middle', width: '10%'},
+		{title: '字段名', field: 'fieldTag', visible: false, align: 'center', valign: 'middle', width: '35%'},
 		{title: '字段描述', field: 'fieldDesp', visible: false, align: 'center', valign: 'middle', width: '12%'},
 		{
 			title: '类型',
@@ -44,6 +44,9 @@ Menu.initColumn = function () {
 				if (item.dataType == 3) {
 					return '<span class="label label-default radius">double</span>';
 				}
+				if (item.dataType == 6) {
+					return '<span class="label label-default radius">bool</span>';
+				}
 				if (item.dataType == 4) {
 					return '<span class="label label-secondary radius">object</span>';
 				}
@@ -54,9 +57,9 @@ Menu.initColumn = function () {
 		},
 
 
-		{title: '字段长度', field: 'fieldLength', visible: false, align: 'center', valign: 'middle', width: '10%'},
-		{title: '默认值', field: 'fieldDefault', visible: false, align: 'center', valign: 'middle', width: '10%'},
-		{title: '查询的SQL', field: 'tableField', visible: false, align: 'center', valign: 'middle', width: '20%'},
+		{title: '字段长度', field: 'fieldLength', visible: false, align: 'center', valign: 'middle', width: '5%'},
+		{title: '默认值', field: 'fieldDefault', visible: false, align: 'center', valign: 'middle', width: '5%'},
+		{title: '查询的SQL', field: 'tableField', visible: false, align: 'center', valign: 'middle', width: '10%'},
 		// {title: '父节点id', field: 'parentId', visible: false, align: 'center', valign: 'middle', width: '10%'},
 		{
 			title: '必填',
@@ -74,7 +77,7 @@ Menu.initColumn = function () {
 			}
 		},
 
-		{title: '排序号', field: 'sort', visible: false, align: 'center', valign: 'middle', width: '10%'}
+		{title: '排序号', field: 'sort', visible: false, align: 'center', valign: 'middle', width: '5%'}
 	];
 	return columns;
 };
