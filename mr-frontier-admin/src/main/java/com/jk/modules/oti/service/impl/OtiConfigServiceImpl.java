@@ -211,7 +211,7 @@ public class OtiConfigServiceImpl extends BaseServiceImpl<OtiConfig> implements 
 													Long parentId) {
 		for (OtiFieldLibrary otiFieldLibrary : otiFieldLibraries) {
 			if (Objects.isNull(parentId) && Objects.isNull(otiFieldLibrary.getParentId())
-					|| parentId == otiFieldLibrary.getParentId()) {
+					|| (!Objects.isNull(parentId) && parentId.equals(otiFieldLibrary.getParentId()))) {
 				log.info(String.valueOf(parentId));
 				log.info(String.valueOf(otiFieldLibrary.getParentId()));
 

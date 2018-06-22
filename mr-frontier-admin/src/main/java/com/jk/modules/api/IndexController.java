@@ -43,7 +43,7 @@ public class IndexController extends BaseController {
 		return map;
 	}
 
-	@GetMapping(value = "/oti_msg/{msgId}")
+	@GetMapping(value = "/oti_msg/{msgId:.+}")
 	public ModelMap outputOtiConfig(@PathVariable("msgId") String msgId) {
 		ModelMap map = new ModelMap();
 		map.put("message" ,otiConfigService.outputOtiConfig(msgId));

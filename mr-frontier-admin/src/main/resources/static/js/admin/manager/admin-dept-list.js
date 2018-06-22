@@ -27,7 +27,7 @@ function inintTree(){
     };
 
     $.ajax({
-        url : "/admin/organization/tree",
+        url : "/admin/dept/tree",
         type : "GET",
         async : true,
         success : function(data) {

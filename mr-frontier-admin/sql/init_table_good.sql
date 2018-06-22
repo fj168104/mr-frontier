@@ -279,7 +279,7 @@ CREATE TABLE `biz_config` (
 DROP TABLE IF EXISTS `oti_config`;
 CREATE TABLE `oti_config` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `msg_id` char(50) NOT NULL COMMENT '传输消息ID',
+  `msg_id` char(100) NOT NULL COMMENT '传输消息ID',
   `msg_name_desp` char(200) DEFAULT '' COMMENT '传输消息描述',
   `charset` char(20) DEFAULT 'utf-8' COMMENT '消息编码',
   `status` int(1) DEFAULT 1 COMMENT '任务状态 0禁用 1启用',
@@ -295,7 +295,7 @@ CREATE TABLE `oti_config` (
 DROP TABLE IF EXISTS `oti_field_library`;
 CREATE TABLE `oti_field_library` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `msg_id` char(50) NOT NULL COMMENT '传输消息ID',
+  `msg_id` char(100) NOT NULL COMMENT '传输消息ID',
   `field_tag` char(50) NOT NULL COMMENT '字段名',
   `field_desp` char(200) DEFAULT '' COMMENT '字段描述',
   `data_type` int(1) DEFAULT 1 COMMENT '1: string  2:int  3:double  4:object  5:array',
