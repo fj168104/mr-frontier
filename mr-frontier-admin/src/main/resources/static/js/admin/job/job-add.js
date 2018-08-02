@@ -113,7 +113,7 @@ function initValidate(value) {
         //动态改变验证规则
         $("#beanClass").rules("remove");
         $("#methodName").rules("remove");
-        $("#remoteUrl").rules("add",{required: true,url: true});
+        $("#remoteUrl").rules("add",{required: true});
         // $("#remoteRequestMethod").rules("add",{required: true});
 
         //动态改变placeholder

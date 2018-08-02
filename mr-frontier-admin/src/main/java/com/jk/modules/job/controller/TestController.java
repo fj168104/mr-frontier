@@ -28,11 +28,10 @@ public class TestController {
      * 测试带参数
      * @param key1
      * @param key2
-     * @param key3
      */
     @PostMapping("test/{key1}/{key2}")
-    public void test2(@PathVariable("key1") String key1, @PathVariable("key2") String key2, String key3){
-        log.info("我是带参数远程调度，正在执行！参数; key1 = {}, key2 = {} ,key3 = {}" , key1, key2, key3);
+    public void test2(@PathVariable("key1") String key1, @PathVariable("key2") String key2){
+        log.info("我是带参数远程调度，正在执行！参数; key1 = {}, key2 = {} " , key1, key2);
     }
 
     /**
