@@ -18,7 +18,7 @@ import java.lang.annotation.Target;
  * 此时会在拦截器中验证是否重复提交,验证通过后删除，
  * 当再次点击保存时由于服务器端的Session中已经不存在了,所有无法验证通过.
  * </p>
- * @author cuiP
+ * @author fengj
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

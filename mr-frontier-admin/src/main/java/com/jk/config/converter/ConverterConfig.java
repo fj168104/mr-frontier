@@ -12,7 +12,7 @@ import java.util.Date;
 /**
  * @packageName: com.jk.config.converter
  * @description: 自定义类型转换器
- * @author: cuiP
+ * @author: fengj
  * @date: 2017/8/14 0:50
  * @version: V1.0.0
  */

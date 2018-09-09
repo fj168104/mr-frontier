@@ -17,8 +17,8 @@ import static com.jk.common.Constant.TOKEN_FORM;
 
 /**
  * 防止表单重复提交拦截器
- * @author cuiP
- * Created by JK on 2017/5/23.
+ * @author fengj
+ * Created by mr on 2017/5/23.
  */
 @Slf4j
 public class FormTokenInterceptor implements HandlerInterceptor {

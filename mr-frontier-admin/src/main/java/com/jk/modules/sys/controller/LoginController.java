@@ -30,7 +30,7 @@ import static com.jk.common.Constant.HEAD_SESSION_STATUS_VALUE;
 
 /**
  * 登录
- * Created by JK on 2017/1/24.
+ * Created by fengj on 2017/1/24.
  */
 @Controller
 @RequestMapping("/admin")

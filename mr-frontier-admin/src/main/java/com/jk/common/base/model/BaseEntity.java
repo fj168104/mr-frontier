@@ -35,7 +35,7 @@ import java.util.Date;
 /**
  * 基础信息
  *
- * @author liuzh
+ * @author fengj
  * @since 2016-01-31 21:42
  */
 @Data

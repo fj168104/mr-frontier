@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * 首页
- * Created by JK on 2017/1/22.
+ * Created by fengj on 2017/1/22.
  */
 @Controller
 public class IndexController extends BaseController{

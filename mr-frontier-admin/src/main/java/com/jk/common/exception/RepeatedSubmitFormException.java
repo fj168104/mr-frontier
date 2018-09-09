@@ -4,8 +4,8 @@ import com.jk.common.ExecStatus;
 
 /**
  * 表单重复提交异常类
- * @author cuiP
- * Created by JK on 2017/5/27.
+ * @author fengj
+ * Created by mr on 2017/5/27.
  */
 public class RepeatedSubmitFormException extends BaseException{
 

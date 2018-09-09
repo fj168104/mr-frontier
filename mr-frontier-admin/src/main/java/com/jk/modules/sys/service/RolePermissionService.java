@@ -6,8 +6,8 @@ import com.jk.modules.sys.model.RolePermission;
 import java.util.List;
 
 /**
- * @author cuiP
- * Created by JK on 2017/2/16.
+ * @author fengj
+ * Created by mr on 2017/2/16.
  */
 public interface RolePermissionService extends BaseService<RolePermission> {
     /**

@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * 权限Controller
- * Created by cuiP on 2017/2/8.
+ * Created by fengj on 2017/2/8.
  */
 @Controller
 @RequestMapping("/admin/permission")

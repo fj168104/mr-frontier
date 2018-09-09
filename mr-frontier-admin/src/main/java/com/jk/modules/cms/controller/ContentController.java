@@ -21,7 +21,7 @@ import javax.annotation.Resource;
 /**
  * 内容管理
  *
- * @author cuiP
+ * @author mr
  *         Created by JK on 2017/4/20.
  */
 @Controller

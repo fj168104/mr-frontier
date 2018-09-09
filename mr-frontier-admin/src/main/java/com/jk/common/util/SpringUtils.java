@@ -13,7 +13,7 @@ import java.util.Locale;
 
 /**
  * Spring工具类
- * @author cuiP
+ * @author fengj
  */
 @Lazy(false)
 @Component("springUtils")

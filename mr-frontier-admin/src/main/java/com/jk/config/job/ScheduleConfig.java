@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 
 /**
  * 定时任务配置
- * @author cuiP
+ * @author fengj
  */
 @Configuration
 public class ScheduleConfig {

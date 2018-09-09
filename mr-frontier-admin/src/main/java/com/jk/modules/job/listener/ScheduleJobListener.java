@@ -9,8 +9,8 @@ import javax.annotation.Resource;
 
 /**
  * 项目启动时初始化定时任务
- * @author cuiP
- * Created by JK on 2017/5/9.
+ * @author fengj
+ * Created by mr on 2017/5/9.
  */
 @Slf4j
 @Component

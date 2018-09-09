@@ -22,8 +22,8 @@ import java.util.List;
 
 /**
  * 身份校验核心类，包括认证和授权
- * @author cuiP
- * Created by JK on 2017/2/9.
+ * @author fengj
+ * Created by mr on 2017/2/9.
  */
 public class AuthenticationRealm extends AuthorizingRealm {
 

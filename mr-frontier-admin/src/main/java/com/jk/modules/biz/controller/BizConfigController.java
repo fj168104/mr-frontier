@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * @author fengj
- * Created by JK on 2018/3/3.
+ * Created by mr on 2018/3/3.
  */
 @Controller
 @RequestMapping("/admin/biz/config")

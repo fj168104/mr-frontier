@@ -7,7 +7,7 @@ package com.jk.config;//package com.jkinvest.backweb.config;
 ///**
 // * @package: com.jkinvest.backweb.config
 // * @description:
-// * @author: cuiP
+// * @author: fengj
 // * @date: 2018/1/31 17:33
 // * @version: V1.0.0
 // */

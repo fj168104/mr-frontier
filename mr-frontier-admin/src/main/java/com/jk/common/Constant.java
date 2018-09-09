@@ -2,7 +2,7 @@ package com.jk.common;
 
 /**
  *
- * Created by JK on 2017/5/18.
+ * Created by mr on 2017/5/18.
  */
 public class Constant {
 

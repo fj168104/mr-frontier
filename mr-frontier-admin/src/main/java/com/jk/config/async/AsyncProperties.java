@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @package: com.jk.config
  * @description: 异步任务线程池配置
- * @author: cuiP
+ * @author: fengj
  * @date: 2018/1/5 9:52
  * @version: V1.0.0
  */

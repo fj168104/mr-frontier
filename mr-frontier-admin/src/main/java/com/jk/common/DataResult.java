@@ -5,8 +5,8 @@ import lombok.Getter;
 
 /**
  * 通用返回结果
- * @author cuiP
- * Created by cuip on 2017/5/26.
+ * @author fengj
+ * Created by mr on 2017/5/26.
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @Getter

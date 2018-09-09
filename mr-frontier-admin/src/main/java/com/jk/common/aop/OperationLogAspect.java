@@ -22,7 +22,7 @@ import java.util.Map;
 
 /**
  * 使用aop实现系统操作日志
- * author : cuiP
+ * author : fengj
  */
 @Aspect
 @Component

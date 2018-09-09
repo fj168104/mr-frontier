@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 
 /**
- * @author cuiP
- * Created by JK on 2017/5/22.
+ * @author fengj
+ * Created by mr on 2017/5/22.
  */
 @Controller
 @RequestMapping("/admin/job/log")

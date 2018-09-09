@@ -4,8 +4,8 @@ import org.springframework.http.HttpStatus;
 
 /**
  * 认证异常类
- * @author cuiP
- * Created by cuip on 2017/5/26.
+ * @author fengj
+ * Created by fengj on 2017/5/26.
  */
 public class AuthenticationException extends BaseException {
 

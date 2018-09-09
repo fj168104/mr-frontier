@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 /**
  * @package: com.jk.modules.sys.model
  * @description: 组织机构
- * @author: cuiP
+ * @author: fengj
  * @date: 2018/1/30 14:52
  * @version: V1.0.0
  */

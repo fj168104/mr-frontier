@@ -15,8 +15,8 @@ import tk.mybatis.mapper.entity.Example;
 import java.util.List;
 
 /**
- * @author cuiP
- * Created by JK on 2017/4/19.
+ * @author fengj
+ * Created by mr on 2017/4/19.
  */
 @Transactional
 @Service

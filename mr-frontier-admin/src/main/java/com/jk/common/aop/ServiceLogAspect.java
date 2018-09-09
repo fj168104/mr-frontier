@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * ClassName: ScheduleLogAspect <br/>
  * Function: 切点类. <br/>
  *
- * @author luoxin
+ * @author fengj
  * @version
  */
 @Aspect

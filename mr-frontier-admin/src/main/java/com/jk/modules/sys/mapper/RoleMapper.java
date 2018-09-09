@@ -4,7 +4,7 @@ import com.jk.modules.sys.model.Role;
 import com.jk.common.base.mapper.BaseMapper;
 
 /**
- * Created by JK on 2017/2/8.
+ * Created by fengj on 2017/2/8.
  */
 public interface RoleMapper extends BaseMapper<Role> {
     /**

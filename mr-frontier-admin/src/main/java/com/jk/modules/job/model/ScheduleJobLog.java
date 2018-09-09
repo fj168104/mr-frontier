@@ -6,8 +6,8 @@ import lombok.EqualsAndHashCode;
 
 /**
  * 任务调度执行日志
- * @author cuiP
- * Created by JK on 2017/5/4.
+ * @author fengj
+ * Created by mr on 2017/5/4.
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

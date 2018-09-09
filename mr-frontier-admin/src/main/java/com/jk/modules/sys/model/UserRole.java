@@ -6,8 +6,8 @@ import lombok.EqualsAndHashCode;
 
 /**
  * 用户角色中间表
- * @author cuiP
- * Created by JK on 2017/2/13.
+ * @author fengj
+ * Created by mr on 2017/2/13.
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

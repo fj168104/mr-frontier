@@ -8,7 +8,7 @@ import org.apache.shiro.subject.Subject;
 
 /**
  * Shiro工具类
- * @author cuip
+ * @author fengj
  */
 @Slf4j
 public class ShiroUtils {

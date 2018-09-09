@@ -14,8 +14,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * 异步任务执行配置
- * @author cuiP
- * Created by cuip on 2017/4/5.
+ * @author fengj
+ * Created by mr on 2017/4/5.
  */
 @Slf4j
 @Configuration

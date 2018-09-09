@@ -34,8 +34,8 @@ import java.util.Map;
 
 /**
  * Shiro配置
- * @author cuiP
- * Created by JK on 2017/2/9.
+ * @author fengj
+ * Created by mr on 2017/2/9.
  */
 @Configuration
 public class ShiroConfig {

@@ -11,7 +11,7 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 
 /**
  * 异步任务工厂(计划任务执行处 无状态)
- * @author cuiP
+ * @author fengj
  */
 @Slf4j
 public class AsyncJobFactory extends QuartzJobBean {

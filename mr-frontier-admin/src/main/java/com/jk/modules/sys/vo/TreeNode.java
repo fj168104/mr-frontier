@@ -4,8 +4,8 @@ import lombok.Data;
 
 /**'
  * 树对象
- * @author cuiP
- * Created by JK on 2017/2/15.
+ * @author fengj
+ * Created by mr on 2017/2/15.
  */
 @Data
 public class TreeNode {

@@ -7,8 +7,8 @@ import com.jk.modules.sys.vo.TreeNode;
 import java.util.List;
 
 /**
- * @author cuiP
- * Created by JK on 2017/4/19.
+ * @author fengj
+ * Created by mr on 2017/4/19.
  */
 public interface ContentCatService extends BaseService<ContentCat> {
     /**

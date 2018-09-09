@@ -24,7 +24,7 @@ import java.util.Deque;
  * @description: 登录过滤器
  * 1. 判断如果已经登录了，还访问login登录地址，做重定向到原来的地址
  * 2. 判断登录账号是否已经在其他地方登录，并进行踢出询问，并展示已经登录用户的信息包括IP和登录时间
- * @author: cuiP
+ * @author: fengj
  * @date: 2017/7/28 16:08
  * @version: V1.0.0
  */

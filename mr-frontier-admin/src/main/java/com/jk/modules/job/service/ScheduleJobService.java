@@ -5,8 +5,8 @@ import com.jk.common.base.service.BaseService;
 import com.jk.modules.job.model.ScheduleJob;
 
 /**
- * @author cuiP
- * Created by JK on 2017/5/4.
+ * @author fengj
+ * Created by mr on 2017/5/4.
  */
 public interface ScheduleJobService extends BaseService<ScheduleJob> {
 

@@ -34,7 +34,7 @@ import java.util.LinkedList;
  * 1.读取当前登录用户名，获取在缓存中的sessionId队列
  * 2.判断队列的长度，大于最大登录限制的时候，按踢出规则将之前的sessionId中的session域中存入kickout：true，并更新队列缓存
  * 3.判断当前登录的session域中的kickout如果为true，想将其做退出登录处理，然后再重定向到踢出登录提示页面
- * @author cuiP 
+ * @author fengj
  * @date 2017/7/24 22:59
  * @version V1.0.0
  */

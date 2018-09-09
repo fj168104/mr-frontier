@@ -5,7 +5,7 @@ import com.jk.modules.sys.model.Role;
 
 /**
  *
- * Created by cuiP on 2017/2/8.
+ * Created by fengj on 2017/2/8.
  */
 public interface RoleService extends BaseService<Role> {
     /**

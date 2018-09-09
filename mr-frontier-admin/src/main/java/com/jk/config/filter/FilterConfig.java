@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * Filter配置
- * @author cuiP
+ * @author fengj
  */
 @Configuration
 public class FilterConfig {

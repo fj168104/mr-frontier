@@ -18,7 +18,8 @@ import java.util.LinkedList;
 /**
  * @packageName: com.jk.shiro.filter
  * @description: 自定义退出过滤器，实现清除缓存
- * @author: cuiP
+ * @author:
+ *
  * @date: 2017/7/31 23:24
  * @version: V1.0.0
  */

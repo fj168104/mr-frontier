@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * SQL过滤
- * @author cuiP
+ * @author fengj
  */
 public class SQLFilter {
 

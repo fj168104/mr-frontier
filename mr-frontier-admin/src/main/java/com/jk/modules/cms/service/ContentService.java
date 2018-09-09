@@ -5,8 +5,8 @@ import com.jk.common.base.service.BaseService;
 import com.jk.modules.cms.model.Content;
 
 /**
- * @author cuiP
- * Created by JK on 2017/4/19.
+ * @author fengj
+ * Created by mr on 2017/4/19.
  */
 public interface ContentService extends BaseService<Content> {
 

@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
 /**
- * @author cuiP
- * Created by JK on 2017/3/13.
+ * @author fengj
+ * Created by mr on 2017/3/13.
  */
 @Configuration
 @EnableCaching//标注启动缓存.

@@ -8,7 +8,7 @@ import com.jk.modules.sys.vo.TreeNode;
 import java.util.List;
 
 /**
- * Created by cuiP on 2017/2/8.
+ * Created by fengj on 2017/2/8.
  */
 public interface PermissionService extends BaseService<Permission> {
     /**

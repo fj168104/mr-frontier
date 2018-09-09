@@ -4,8 +4,8 @@ import lombok.Getter;
 
 /**
  * 执行状态定义
- * @author cuiP
- * Created by JK on 2017/5/27.
+ * @author fengj
+ * Created by mr on 2017/5/27.
  */
 @Getter
 public enum ExecStatus {

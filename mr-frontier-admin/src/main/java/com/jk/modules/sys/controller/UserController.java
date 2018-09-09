@@ -20,8 +20,8 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * @author cuiP
- * Created by JK on 2017/1/19.
+ * @author fengj
+ * Created by mr on 2017/1/19.
  */
 @Controller
 @RequestMapping("/admin/manager")

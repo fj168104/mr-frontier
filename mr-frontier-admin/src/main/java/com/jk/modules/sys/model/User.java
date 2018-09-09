@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * 用户
- * Created by cuiP on 2017/1/19.
+ * Created by fengj on 2017/1/19.
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

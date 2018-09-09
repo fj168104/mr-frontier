@@ -6,7 +6,7 @@ import com.jk.common.base.service.BaseService;
 import com.jk.modules.sys.model.User;
 
 /**
- * Created by JK on 2017/1/19.
+ * Created by fengj on 2017/1/19.
  */
 public interface UserService extends BaseService<User> {
     /**

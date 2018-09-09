@@ -12,8 +12,8 @@ import java.util.Set;
 
 /**
  * 数据校验异常类
- * @author cuiP
- * Created by JK on 2017/5/26.
+ * @author fengj
+ * Created by mr on 2017/5/26.
  */
 @Getter
 public class ValidateException extends BaseException {

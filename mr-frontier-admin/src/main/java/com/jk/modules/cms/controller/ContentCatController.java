@@ -13,8 +13,8 @@ import java.util.List;
 
 /**
  * 内容分类管理
- * @author cuiP
- * Created by JK on 2017/4/21.
+ * @author fengj
+ * Created by mr on 2017/4/21.
  */
 @Controller
 @RequestMapping("/admin/content/cat")

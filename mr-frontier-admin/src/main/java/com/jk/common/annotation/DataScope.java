@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * @package: com.jkinvest.backweb.aop
  * @description
- * @author: cuiP
+ * @author: fengj
  * @date: 2018/2/1 16:08
  * @version: V1.0.0
  */

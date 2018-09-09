@@ -7,7 +7,7 @@ import com.jk.modules.sys.vo.TreeNode;
 import java.util.List;
 
 /**
- * Created by JK on 2017/2/8.
+ * Created by fengj on 2017/2/8.
  */
 public interface PermissionMapper extends BaseMapper<Permission> {
     /**

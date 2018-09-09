@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * @package: com.jk.vo
  * @description: 登录用户信息
- * @author: cuiP
+ * @author: fengj
  * @date: 2017/7/31 15:00
  * @version: V1.0.0
  */

@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * @author cuiP
- * Created by JK on 2017/3/7.
+ * @author fengj
+ * Created by mr on 2017/3/7.
  */
 @RestController("APIIndexController")
 public class IndexController extends BaseController {

@@ -31,7 +31,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * @author cuiP
+ * @author fengj
  */
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {

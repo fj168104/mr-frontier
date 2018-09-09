@@ -25,7 +25,7 @@ import java.util.Date;
  * @className: FileUploadControl
  * @packageName: com.jk.modules.sys.controller
  * @description: 文件上传(包括文件和图片)
- * @author: cuiP
+ * @author: fengj
  * @date: 2017/8/2 JK
  * @version: V1.0.0
  */

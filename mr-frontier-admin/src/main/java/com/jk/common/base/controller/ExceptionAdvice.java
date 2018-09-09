@@ -28,8 +28,8 @@ import static com.jk.common.Constant.*;
 
 /**
  * 全局异常处理
- * @author cuiP
- * Created by JK on 2017/5/26.
+ * @author fengj
+ * Created by mr on 2017/5/26.
  */
 @Slf4j
 @ControllerAdvice

@@ -9,7 +9,7 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 
 /**
  * 同步任务工厂(若一个方法一次执行不完下次轮转时则等待改方法执行完后才执行下一次操作)
- * @author cuiP
+ * @author fengj
  */
 @Slf4j
 @PersistJobDataAfterExecution

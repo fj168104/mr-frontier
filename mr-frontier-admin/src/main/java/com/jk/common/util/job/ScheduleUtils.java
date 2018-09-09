@@ -11,7 +11,7 @@ import org.quartz.*;
 import java.util.Date;
 
 /**
- * author : fengjing
+ * author : fengj
  * createTime : 2016-08-04
  * description : 定时任务操作辅助类
  * version : 1.0

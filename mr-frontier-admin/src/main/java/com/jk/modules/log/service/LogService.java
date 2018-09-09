@@ -5,8 +5,8 @@ import com.jk.common.base.service.BaseService;
 import com.jk.modules.log.model.Log;
 
 /**
- * @author cuiP
- * Created by JK on 2017/4/27.
+ * @author fengj
+ * Created by mr on 2017/4/27.
  */
 public interface LogService extends BaseService<Log> {
 

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 统一错误处理 404 500
- * Created by JK on 2017/2/13.
+ * Created by mr on 2017/2/13.
  */
 @Controller
 public class GlobalErrorController implements ErrorController {

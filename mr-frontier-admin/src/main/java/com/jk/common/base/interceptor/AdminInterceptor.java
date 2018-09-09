@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 后台--校验用户登陆
- * Created by JK on 2017/1/12.
+ * Created by fengj on 2017/1/12.
  */
 public class AdminInterceptor implements HandlerInterceptor{
 

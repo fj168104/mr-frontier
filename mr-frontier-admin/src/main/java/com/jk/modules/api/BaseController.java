@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author
- * Created by JK on 2017/3/10.
+ * Created by mr on 2017/3/10.
  */
 @RequestMapping("/api/v1")
 public class BaseController {

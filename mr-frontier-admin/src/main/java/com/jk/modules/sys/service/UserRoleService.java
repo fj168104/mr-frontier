@@ -4,8 +4,8 @@ import com.jk.common.base.service.BaseService;
 import com.jk.modules.sys.model.UserRole;
 
 /**
- * @author cuiP
- * Created by JK on 2017/2/16.
+ * @author fengj
+ * Created by mr on 2017/2/16.
  */
 public interface UserRoleService extends BaseService<UserRole> {
     /**

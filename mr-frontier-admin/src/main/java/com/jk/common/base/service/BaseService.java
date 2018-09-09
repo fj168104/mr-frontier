@@ -6,8 +6,8 @@ import com.jk.common.base.model.BaseEntity;
 import java.util.List;
 
 /**
- * @author cuiP
- * Created by JK on 2017/1/18.
+ * @author fengj
+ * Created by mr on 2017/1/18.
  */
 public interface BaseService<T extends BaseEntity> {
     /**

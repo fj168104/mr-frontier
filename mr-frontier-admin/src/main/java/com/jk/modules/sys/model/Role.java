@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 角色
- * Created by cuiP on 2017/2/8.
+ * Created by fengj on 2017/2/8.
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

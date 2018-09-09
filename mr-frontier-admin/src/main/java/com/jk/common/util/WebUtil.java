@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * @author cuiP
- * Created by JK on 2017/2/21.
+ * @author fengj
+ * Created by mr on 2017/2/21.
  */
 @Slf4j
 public class WebUtil {

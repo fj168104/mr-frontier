@@ -21,8 +21,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author cuiP
- * Created by JK on 2017/5/5.
+ * @author fengj
+ * Created by mr on 2017/5/5.
  */
 @Controller
 @RequestMapping("/admin/job")
